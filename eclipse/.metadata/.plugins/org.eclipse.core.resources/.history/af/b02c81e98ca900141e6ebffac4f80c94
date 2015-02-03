@@ -1,0 +1,11 @@
+package co.zerono.pc.reference;
+
+public class Names 
+{
+	public static final class Blocks
+	{
+		public static final String ORE_BLOCK = "oreBlock";
+		public static final String ORE_POOR_BLOCK = "orePoorBlock";
+		public static final String ORE_DENSE_BLOCK = "oreDenseBlock";
+	}
+}

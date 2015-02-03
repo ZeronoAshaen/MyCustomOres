@@ -1,0 +1,17 @@
+[
+{
+  "modid": "pc",
+  "name": "PeriodiCraft",
+  "description": "Universal World Gen!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Zerono"],
+  "credits": "The Forge and FML guys, for making it possible to easily mod Minecraft.",
+  "logoFile": "",
+  "screenshots": [],
+  "parent":"",
+  "dependencies": []
+}
+]

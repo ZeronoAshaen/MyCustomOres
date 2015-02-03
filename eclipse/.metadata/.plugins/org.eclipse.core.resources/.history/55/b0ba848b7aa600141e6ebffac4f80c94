@@ -1,0 +1,17 @@
+package co.zerono.pc.blocks;
+
+import net.minecraft.util.IIcon;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+public class BlockPoorOre extends BlockPC
+{
+	@SideOnly(Side.CLIENT)
+	private IIcon[] blockTop, blockSide;
+	
+	public BlockPoorOre()
+	{
+		super();
+		this.setBlockName(
+	}
+}

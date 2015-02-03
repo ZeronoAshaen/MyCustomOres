@@ -1,0 +1,19 @@
+package co.zerono.pc.helpers;
+
+public class MathHelper 
+{
+	public static Integer[] stringToInteger(String[] string)
+	{
+		Integer[] intArray = new Integer[string.length-1];
+		int i=0;
+		if(i<string.length-1)
+		{
+			for (String str:string)
+			{
+				intArray[i]=Integer.parseInt(str.trim());
+			}
+			i++;
+		}
+		return intArray;
+	}
+}

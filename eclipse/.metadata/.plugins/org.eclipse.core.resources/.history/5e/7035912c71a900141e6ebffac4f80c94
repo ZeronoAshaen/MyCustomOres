@@ -1,0 +1,84 @@
+package co.zerono.pc.handlers;
+
+import net.minecraftforge.common.config.Configuration;
+
+public class ConfigurationHandler 
+{
+	private static Configuration configuration;
+	
+	public static boolean generates(String name)
+	{
+		boolean b = ConfigurationHandler.configuration.get("generators", name, true).getBoolean(true);
+		
+        ConfigurationHandler.saveChanges();
+		
+		return b;
+	}
+	private static boolean getBoolean(String categories, String key, boolean defaultValue)
+	{
+		boolean b = ConfigurationHandler.configuration.get(categories, key, defaultValue).getBoolean(defaultValue);
+		
+        ConfigurationHandler.saveChanges();
+		
+		return b;
+	}
+	private static String getName(String categories, String key, String defaultValue)
+	{
+		String string = ConfigurationHandler.configuration.get(categories, key, defaultValue).toString();
+		
+        ConfigurationHandler.saveChanges();
+		
+		return string;
+	}
+	/**
+     * Gets ore generation dimension information
+     * 
+     * @param oreTag
+     *            Ore configuration tag, this will be use to create sub
+     *            category under generation category.
+     * @param defaultDimensions
+     *            Default dimensions information for ore generation
+     * @return
+     *         dimensions ore generation information from configuration file
+     */
+    public static int[] getOreGenerationInformation(String oreTag, int[] defaultInfo)
+    {
+
+        int veinsPerChunk = ConfigurationHandler.configuration.get("generators." + oreTag, "veins_per_chunk", defaultInfo[0]).getInt(defaultInfo[0]);
+        int oresPreVein = ConfigurationHandler.configuration.get("generators." + oreTag, "ores_per_vein", defaultInfo[1]).getInt(defaultInfo[1]);
+        int minYLevel = ConfigurationHandler.configuration.get("generators." + oreTag, "min_Y_level", defaultInfo[2]).getInt(defaultInfo[2]);
+        int maxYLevel = ConfigurationHandler.configuration.get("generators." + oreTag, "max_Y_level", defaultInfo[3]).getInt(defaultInfo[3]);
+        int chunkChance = ConfigurationHandler.configuration.get("generators." + oreTag, "chunk_chance", defaultInfo[4]).getInt(defaultInfo[4]);
+
+        ConfigurationHandler.saveChanges();
+
+        int[] generationInfo = { veinsPerChunk, oresPreVein, minYLevel, maxYLevel, chunkChance };
+        return generationInfo;
+    }
+    public static boolean regen()
+    {
+        return ConfigurationHandler.getBoolean("world_Regen", "regen_ores", false);
+    }
+    public static String regenKey()
+    {
+        return ConfigurationHandler.getName("world_Regen", "regen_key", "DEFAULT");
+    }
+    private static void saveChanges()
+    {
+
+        if (ConfigurationHandler.configuration.hasChanged())
+        {
+        	ConfigurationHandler.configuration.save();
+        }
+    }
+    public static int blockHarvestLevel(String metal, int defaultLevel)
+    {
+        int blockLevel = ConfigurationHandler.configuration.get("metal_stats." + metal, "block_harvest_level", defaultLevel).getInt(defaultLevel);
+
+        ConfigurationHandler.saveChanges();
+
+        return blockLevel;
+    }
+	
+	
+}

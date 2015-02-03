@@ -1,0 +1,9 @@
+package co.zerono.pc.proxy;
+
+public class CommonProxy implements IProxy
+{
+	public void registerEventHandlers()
+	{
+		
+	}
+}

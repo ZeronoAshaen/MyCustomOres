@@ -1,0 +1,42 @@
+# Configuration
+general.ores.generator.comment=Generate the Ore?
+
+#Keys
+
+#Creative Tabs
+itemGroup.pc.ore=PeriodiCraft Ores
+itemGroup.pc.items=PeriodiCraft Items
+
+
+#Items
+
+#Blocks
+tile.pc:poorOreBlock.Aluminium.name=Aluminium Ore
+tile.pc:poorOreBlock.Beryllium.name=Beryllium Ore
+tile.pc:poorOreBlock.Chromium.name=Chromium Ore
+tile.pc:poorOreBlock.Coal.name=Coal Ore
+tile.pc:poorOreBlock.Cobalt.name=Cobalt Ore
+tile.pc:poorOreBlock.Copper.name=Copper Ore
+tile.pc:poorOreBlock.Gold.name=Gold Ore
+tile.pc:poorOreBlock.Iridium.name=Iridium Ore
+tile.pc:poorOreBlock.Iron.name=Iron Ore
+tile.pc:poorOreBlock.Lapis.name=Lapis Ore
+tile.pc:poorOreBlock.Lead.name=Lead Ore
+tile.pc:poorOreBlock.Lithium.name=Lithium Ore
+tile.pc:poorOreBlock.Magnesium.name=Magnesium Ore
+tile.pc:poorOreBlock.Neptunium.name=Neptunium Ore
+tile.pc:poorOreBlock.Nickel.name=Nickel Ore
+tile.pc:poorOreBlock.Palladium.name=Palladium Ore
+tile.pc:poorOreBlock.Phosphorus.name=Phosphorus Ore
+tile.pc:poorOreBlock.Platinum.name=Platinum Ore
+tile.pc:poorOreBlock.Plutonium.name=Plutonium Ore
+tile.pc:poorOreBlock.Silicon.name=Silicon Ore
+tile.pc:poorOreBlock.Silver.name=Silver Ore
+tile.pc:poorOreBlock.Sodium.name=Sodium Ore
+tile.pc:poorOreBlock.Sulfur.name=Sulfur Ore
+tile.pc:poorOreBlock.Tin.name=Tin Ore
+tile.pc:poorOreBlock.Titanium.name=Titanium Ore
+tile.pc:poorOreBlock.Tungsten.name=Tungsten Ore
+tile.pc:poorOreBlock.Uranium.name=Uranium Ore
+tile.pc:poorOreBlock.Zinc.name=Zinc Ore
+

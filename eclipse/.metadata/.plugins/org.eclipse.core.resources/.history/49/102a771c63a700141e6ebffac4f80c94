@@ -1,0 +1,78 @@
+package co.zerono.pc.handlers;
+
+import java.io.File;
+
+import co.zerono.pc.reference.Messages;
+import co.zerono.pc.reference.Reference;
+import co.zerono.pc.reference.Settings;
+import co.zerono.pc.utility.ConfigurationHelper;
+import co.zerono.pc.utility.LogHelper;
+import cpw.mods.fml.client.event.ConfigChangedEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.util.StatCollector;
+import net.minecraftforge.common.config.Configuration;
+
+public class ConfigurationHandler 
+{
+	public static Configuration configuration;
+	
+	public static void init(File configFile)
+	{
+		if(configuration == null)
+		{
+			configuration = new Configuration(configFile);
+			loadConfiguration();
+		}
+	}
+	
+	public static void loadConfiguration()
+	{
+		// TODO add all configurations
+		Settings.Ore.Master.GEN_POOR = configuration.getBoolean("GEN_POOR", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.MASTER_GEN_POOR_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Master.GEN_ORE = configuration.getBoolean("GEN_ORE", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.MASTER_GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Master.GEN_DENSE = configuration.getBoolean("GEN_DENSE", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.MASTER_GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		
+		Settings.Ore.Gen.GEN_ALUMINIUM = configuration.getBoolean("GEN_ALUMINIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_BERYLLIUM = configuration.getBoolean("GEN_BERYLLIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_CHROMIUM = configuration.getBoolean("GEN_CHROMIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_COAL = configuration.getBoolean("GEN_COAL", Messages.Configuration.CATEGORY_ORES, false, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_COBALT = configuration.getBoolean("GEN_COBALT", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_COPPER = configuration.getBoolean("GEN_COPPER", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_GOLD = configuration.getBoolean("GEN_GOLD", Messages.Configuration.CATEGORY_ORES, false, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_IRIDIUM = configuration.getBoolean("GEN_IRIDIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_IRON = configuration.getBoolean("GEN_IRON", Messages.Configuration.CATEGORY_ORES, false, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_LAPIS = configuration.getBoolean("GEN_LAPIS", Messages.Configuration.CATEGORY_ORES, false, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_LEAD = configuration.getBoolean("GEN_LEAD", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_LITHIUM = configuration.getBoolean("GEN_LITHIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_MAGNESIUM = configuration.getBoolean("GEN_MAGNESIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_NEPTUNIUM = configuration.getBoolean("GEN_NEPTUNIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_NICKEL = configuration.getBoolean("GEN_NICKEL", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_PALLADIUM = configuration.getBoolean("GEN_PALLADIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_PHOSPHORUS = configuration.getBoolean("GEN_PHOSPHORUS", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_PLATINUM = configuration.getBoolean("GEN_PLATINUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_PLUTONIUM = configuration.getBoolean("GEN_PLUTONIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_SILICON = configuration.getBoolean("GEN_SILICON", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_SILVER = configuration.getBoolean("GEN_SILVER", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_SODIUM = configuration.getBoolean("GEN_SODIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_SULFUR = configuration.getBoolean("GEN_SULFUR", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_TIN = configuration.getBoolean("GEN_TIN", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_TITANIUM = configuration.getBoolean("GEN_TITANIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_TUNGSTEN = configuration.getBoolean("GEN_TUNGSTEN", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_URANIUM = configuration.getBoolean("GEN_URANIUM", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		Settings.Ore.Gen.GEN_ZINC = configuration.getBoolean("GEN_ZINC", Messages.Configuration.CATEGORY_ORES, true, StatCollector.translateToLocal(Messages.Configuration.GEN_ORE_COMMENT), Messages.Configuration.GEN_ORE_LABEL);
+		
+		if (configuration.hasChanged())
+		{
+			configuration.save();
+		}
+	}
+	
+	@SubscribeEvent
+	public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event)
+	{
+		if (event.modID.equalsIgnoreCase(Reference.MOD_ID))
+		{
+			loadConfiguration();
+		}
+	}
+}

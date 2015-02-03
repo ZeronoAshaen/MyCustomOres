@@ -1,0 +1,103 @@
+# Configuration
+general.ores.generator.comment=Generate the Ore?
+
+#Keys
+
+#Creative Tabs
+itemGroup.pc.ore=PeriodiCraft Ores
+itemGroup.pc.items=PeriodiCraft Items
+
+
+#Items
+
+#Blocks
+tile.pc:poorOreBlock.Aluminium.name=Poor Aluminium Ore
+tile.pc:poorOreBlock.Beryllium.name=Poor Beryllium Ore
+tile.pc:poorOreBlock.Chromium.name=Poor Chromium Ore
+tile.pc:poorOreBlock.Coal.name=Poor Coal Ore
+tile.pc:poorOreBlock.Cobalt.name=Poor Cobalt Ore
+tile.pc:poorOreBlock.Copper.name=Poor Copper Ore
+tile.pc:poorOreBlock.Gold.name=Poor Gold Ore
+tile.pc:poorOreBlock.Iridium.name=Poor Iridium Ore
+tile.pc:poorOreBlock.Iron.name=Poor Iron Ore
+tile.pc:poorOreBlock.Lapis.name=Poor Lapis Ore
+tile.pc:poorOreBlock.Lead.name=Poor Lead Ore
+tile.pc:poorOreBlock.Lithium.name=Poor Lithium Ore
+tile.pc:poorOreBlock.Magnesium.name=Poor Magnesium Ore
+tile.pc:poorOreBlock.Neptunium.name=Poor Neptunium Ore
+tile.pc:poorOreBlock.Nickel.name=Poor Nickel Ore
+tile.pc:poorOreBlock.Palladium.name=Poor Palladium Ore
+tile.pc:poorOreBlock.Phosphorus.name=Poor Phosphorus Ore
+tile.pc:poorOreBlock.Platinum.name=Poor Platinum Ore
+tile.pc:poorOreBlock.Plutonium.name=Poor Plutonium Ore
+tile.pc:poorOreBlock.Silicon.name=Poor Silicon Ore
+tile.pc:poorOreBlock.Silver.name=Poor Silver Ore
+tile.pc:poorOreBlock.Sodium.name=Poor Sodium Ore
+tile.pc:poorOreBlock.Sulfur.name=Poor Sulfur Ore
+tile.pc:poorOreBlock.Tin.name=Poor Tin Ore
+tile.pc:poorOreBlock.Titanium.name=Poor Titanium Ore
+tile.pc:poorOreBlock.Tungsten.name=Poor Tungsten Ore
+tile.pc:poorOreBlock.Uranium.name=Poor Uranium Ore
+tile.pc:poorOreBlock.Zinc.name=Poor Zinc Ore
+
+tile.pc:oreBlock.Aluminium.name=Aluminium Ore
+tile.pc:oreBlock.Beryllium.name=Beryllium Ore
+tile.pc:oreBlock.Chromium.name=Chromium Ore
+tile.pc:oreBlock.Coal.name=Coal Ore
+tile.pc:oreBlock.Cobalt.name=Cobalt Ore
+tile.pc:oreBlock.Copper.name=Copper Ore
+tile.pc:oreBlock.Gold.name=Gold Ore
+tile.pc:oreBlock.Iridium.name=Iridium Ore
+tile.pc:oreBlock.Iron.name=Iron Ore
+tile.pc:oreBlock.Lapis.name=Lapis Ore
+tile.pc:oreBlock.Lead.name=Lead Ore
+tile.pc:oreBlock.Lithium.name=Lithium Ore
+tile.pc:oreBlock.Magnesium.name=Magnesium Ore
+tile.pc:oreBlock.Neptunium.name=Neptunium Ore
+tile.pc:oreBlock.Nickel.name=Nickel Ore
+tile.pc:oreBlock.Palladium.name=Palladium Ore
+tile.pc:oreBlock.Phosphorus.name=Phosphorus Ore
+tile.pc:oreBlock.Platinum.name=Platinum Ore
+tile.pc:oreBlock.Plutonium.name=Plutonium Ore
+tile.pc:oreBlock.Silicon.name=Silicon Ore
+tile.pc:oreBlock.Silver.name=Silver Ore
+tile.pc:oreBlock.Sodium.name=Sodium Ore
+tile.pc:oreBlock.Sulfur.name=Sulfur Ore
+tile.pc:oreBlock.Tin.name=Tin Ore
+tile.pc:oreBlock.Titanium.name=Titanium Ore
+tile.pc:oreBlock.Tungsten.name=Tungsten Ore
+tile.pc:oreBlock.Uranium.name=Uranium Ore
+tile.pc:oreBlock.Zinc.name=Zinc Ore
+
+tile.pc:denseOreBlock.Aluminium.name=Dense Aluminium Ore
+tile.pc:denseOreBlock.Beryllium.name=Dense Beryllium Ore
+tile.pc:denseOreBlock.Chromium.name=Dense Chromium Ore
+tile.pc:denseOreBlock.Coal.name=Dense Coal Ore
+tile.pc:denseOreBlock.Cobalt.name=Dense Cobalt Ore
+tile.pc:denseOreBlock.Copper.name=Dense Copper Ore
+tile.pc:denseOreBlock.Gold.name=Dense Gold Ore
+tile.pc:denseOreBlock.Iridium.name=Dense Iridium Ore
+tile.pc:denseOreBlock.Iron.name=Dense Iron Ore
+tile.pc:denseOreBlock.Lapis.name=Dense Lapis Ore
+tile.pc:denseOreBlock.Lead.name=Dense Lead Ore
+tile.pc:denseOreBlock.Lithium.name=Dense Lithium Ore
+tile.pc:denseOreBlock.Magnesium.name=Dense Magnesium Ore
+tile.pc:denseOreBlock.Neptunium.name=Dense Neptunium Ore
+tile.pc:denseOreBlock.Nickel.name=Dense Nickel Ore
+tile.pc:denseOreBlock.Palladium.name=Dense Palladium Ore
+tile.pc:denseOreBlock.Phosphorus.name=Dense Phosphorus Ore
+tile.pc:denseOreBlock.Platinum.name=Dense Platinum Ore
+tile.pc:denseOreBlock.Plutonium.name=Dense Plutonium Ore
+tile.pc:denseOreBlock.Silicon.name=Dense Silicon Ore
+tile.pc:denseOreBlock.Silver.name=Dense Silver Ore
+tile.pc:denseOreBlock.Sodium.name=Dense Sodium Ore
+tile.pc:denseOreBlock.Sulfur.name=Dense Sulfur Ore
+tile.pc:denseOreBlock.Tin.name=Dense Tin Ore
+tile.pc:denseOreBlock.Titanium.name=Dense Titanium Ore
+tile.pc:denseOreBlock.Tungsten.name=Dense Tungsten Ore
+tile.pc:denseOreBlock.Uranium.name=Dense Uranium Ore
+tile.pc:denseOreBlock.Zinc.name=Dense Zinc Ore
+
+
+
+

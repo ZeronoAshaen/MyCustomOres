@@ -1,0 +1,5 @@
+package co.zerono.pc.handlers.texture;
+
+public class GetTexture {
+
+}

@@ -1,0 +1,14 @@
+package co.zerono.pc.item;
+
+import co.zerono.pc.init.ModBlocks;
+import co.zerono.pc.reference.Names;
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemMultiTexture;
+
+public class ItemBlockDenseOre extends ItemMultiTexture
+{
+    public ItemBlockDenseOre(Block block)
+    {
+        super(ModBlocks.denseOreBlock, ModBlocks.denseOreBlock, Names.Blocks.ORE_DENSE);
+    }
+}

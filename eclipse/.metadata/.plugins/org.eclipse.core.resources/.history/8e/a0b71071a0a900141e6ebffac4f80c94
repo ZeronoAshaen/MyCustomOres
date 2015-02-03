@@ -1,0 +1,44 @@
+package co.zerono.pc.init;
+
+import co.zerono.pc.blocks.BlockOre;
+import co.zerono.pc.blocks.BlockPC;
+import co.zerono.pc.reference.Reference;
+import co.zerono.pc.reference.Settings;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+@GameRegistry.ObjectHolder(Reference.MOD_ID)
+public class ModBlocks 
+{
+	public static final BlockPC oreBlock = new BlockOre();
+	
+	public static void init()
+	{
+		initBlocks();
+	}
+	
+	public static void initBlocks()
+	{
+		if(Settings.Master.GEN_ORE)
+		{
+			for(int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
+			{
+				GameRegistry.registerBlock(oreBlock, Settings.Ore.ORE_NAMES[i]);
+				//GameRegistry.registerBlock(oreBlock, Settings.Ore.ORE_NAMES[i]).setBlockName("ore"+Settings.Ore.ORE_NAMES[i]).setHarvestLevel(Settings.Ore.ORE_TOOL_CLASS[i], Settings.Ore.ORE_HARVEST_LEVEL[i]);
+			}
+		}
+		if(Settings.Master.GEN_POOR)
+		{
+			for(int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
+			{
+				GameRegistry.registerBlock(oreBlock, Settings.Ore.ORE_NAMES[i]).setBlockName("orePoor"+Settings.Ore.ORE_NAMES[i]).setHarvestLevel(Settings.Ore.ORE_TOOL_CLASS[i], Settings.Ore.ORE_HARVEST_LEVEL[i]);
+			}
+		}
+		if(Settings.Master.GEN_DENSE)
+		{
+			for(int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
+			{
+				GameRegistry.registerBlock(oreBlock, Settings.Ore.ORE_NAMES[i]).setBlockName("oreDense"+Settings.Ore.ORE_NAMES[i]).setHarvestLevel(Settings.Ore.ORE_TOOL_CLASS[i], Settings.Ore.ORE_HARVEST_LEVEL[i]);
+			}
+		}
+	}
+}

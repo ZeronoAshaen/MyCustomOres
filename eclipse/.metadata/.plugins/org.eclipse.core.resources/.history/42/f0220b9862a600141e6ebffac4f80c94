@@ -1,0 +1,5 @@
+package co.zerono.pc.utility;
+
+public class LogHelper {
+
+}

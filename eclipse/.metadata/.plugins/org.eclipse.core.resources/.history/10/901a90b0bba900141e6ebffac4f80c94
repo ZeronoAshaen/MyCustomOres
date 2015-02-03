@@ -1,0 +1,14 @@
+# Configuration
+general.master=What Type of ore should be Generated?
+general.ores=Input the information for each ore separated by a comma.
+
+#Keys
+
+#Creative Tabs
+itemGroup.pc.ore=PeriodiCraft Ores
+itemGroup.pc.items=PeriodiCraft Items
+
+
+#Items
+
+#Blocks
