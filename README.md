@@ -1,2 +1,2 @@
-# PeriodiCraft
-All inclusive world gen mod for Minecraft
+# MyCustomOres
+All inclusive ore gen mod for Minecraft
