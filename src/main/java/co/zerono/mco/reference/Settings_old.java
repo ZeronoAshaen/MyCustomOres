@@ -1,6 +1,6 @@
-package co.zerono.pc.reference;
+package co.zerono.mco.reference;
 
-import co.zerono.pc.reference.Names.Blocks;
+import co.zerono.mco.reference.Names.Blocks;
 
 public class Settings_old 
 {

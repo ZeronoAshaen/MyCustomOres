@@ -1,8 +1,8 @@
-package co.zerono.pc.blocks;
+package co.zerono.mco.blocks;
 
 import scala.util.Random;
-import co.zerono.pc.creativeTab.CreativeTabPC;
-import co.zerono.pc.reference.Textures;
+import co.zerono.mco.creativeTab.CreativeTabMCO;
+import co.zerono.mco.reference.Textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -15,20 +15,20 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockPC extends Block
+public class BlockMCO extends Block
 {
-	public BlockPC()
+	public BlockMCO()
 	{
         this(Material.rock);
-        this.setCreativeTab(CreativeTabPC.PC_ORE_TAB);
+        this.setCreativeTab(CreativeTabMCO.MCO_ORE_TAB);
         this.setHardness(1.5F);
         this.setResistance(10.0F);
 	}
 	
-	public BlockPC(Material material)
+	public BlockMCO(Material material)
 	{
 		super(material);
-		this.setCreativeTab(CreativeTabPC.PC_ORE_TAB);
+		this.setCreativeTab(CreativeTabMCO.MCO_ORE_TAB);
 	}
 	
     @Override

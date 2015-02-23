@@ -1,8 +1,7 @@
 # Configuration
-general.comment=You can generate any ore you could want, but you will have to input the names in the language file and provide the textures!
+general.comment=You can generate any ore you could want! The language file has a slew of names for common ores. If your ore is not common then send me a pull request!
 general.master.comment=What Type of ore should be Generated?
-general.ores.comment=Input the information for each ore separated by a comma.
-
+general.ores.comment=Input the information for each ore.
 #Keys
 
 #Creative Tabs

@@ -1,14 +1,14 @@
-package co.zerono.pc.init;
+package co.zerono.mco.init;
 
-import co.zerono.pc.item.ItemPC;
-import co.zerono.pc.item.ItemPlaceHolder;
-import co.zerono.pc.reference.Reference;
+import co.zerono.mco.item.ItemMCO;
+import co.zerono.mco.item.ItemPlaceHolder;
+import co.zerono.mco.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems 
 {
-	public static final ItemPC itemPlaceHolder = new ItemPlaceHolder();
+	public static final ItemMCO itemPlaceHolder = new ItemPlaceHolder();
 	
 	public static void Init()
 	{

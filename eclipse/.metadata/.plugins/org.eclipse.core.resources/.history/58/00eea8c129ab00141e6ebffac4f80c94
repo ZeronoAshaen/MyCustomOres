@@ -1,8 +1,0 @@
-package co.zerono.pc.handlers;
-
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-
-public class GetTexture extends TextureAtlasSprite
-{
-	public GetTexture
-}

@@ -1,6 +1,6 @@
-package co.zerono.pc.network;
+package co.zerono.mco.network;
 
-import co.zerono.pc.reference.Reference;
+import co.zerono.mco.reference.Reference;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 

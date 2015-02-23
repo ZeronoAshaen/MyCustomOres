@@ -1,6 +1,6 @@
-package co.zerono.pc.utility;
+package co.zerono.mco.utility;
 
-import co.zerono.pc.reference.Reference;
+import co.zerono.mco.reference.Reference;
 import cpw.mods.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 

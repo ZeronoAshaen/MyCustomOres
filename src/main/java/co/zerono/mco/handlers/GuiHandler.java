@@ -1,4 +1,4 @@
-package co.zerono.pc.handlers;
+package co.zerono.mco.handlers;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

@@ -1,19 +1,19 @@
-package co.zerono.pc.item;
+package co.zerono.mco.item;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import co.zerono.pc.creativeTab.CreativeTabPC;
-import co.zerono.pc.reference.Textures;
+import co.zerono.mco.creativeTab.CreativeTabMCO;
+import co.zerono.mco.reference.Textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemPC extends Item
+public class ItemMCO extends Item
 {
-    public ItemPC()
+    public ItemMCO()
     {
         super();
-        this.setCreativeTab(CreativeTabPC.PC_ITEMS_TAB);
+        this.setCreativeTab(CreativeTabMCO.MCO_ITEMS_TAB);
         this.maxStackSize = 1;
         this.setNoRepair();
     }

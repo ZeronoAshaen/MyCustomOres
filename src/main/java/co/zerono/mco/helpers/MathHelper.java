@@ -1,19 +1,16 @@
-package co.zerono.pc.helpers;
+package co.zerono.mco.helpers;
 
 public class MathHelper 
 {
-	public static Integer[] stringToInteger(String[] strings)
+	public static float[] intArrayToFloatArray(int[] intArray)
 	{
-		Integer[] intArray = new Integer[strings.length-1];
-		int i=0;
-		if(i<strings.length-1)
+		float[] floatArray;
+		floatArray = new float[intArray.length];
+		
+		for(int i=0; i<intArray.length; i++)
 		{
-			for (String str:strings)
-			{
-				intArray[i]=Integer.parseInt(str.trim());
-			}
-			i++;
+			floatArray[i] = (float) intArray[i];
 		}
-		return intArray;
+		return floatArray;
 	}
 }

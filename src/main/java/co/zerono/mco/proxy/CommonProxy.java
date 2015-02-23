@@ -1,4 +1,4 @@
-package co.zerono.pc.proxy;
+package co.zerono.mco.proxy;
 
 public abstract class CommonProxy implements IProxy
 {

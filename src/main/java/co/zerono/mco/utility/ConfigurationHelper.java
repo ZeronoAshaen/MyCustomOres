@@ -1,4 +1,4 @@
-package co.zerono.pc.utility;
+package co.zerono.mco.utility;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;

@@ -1,17 +1,16 @@
-package co.zerono.pc;
+package co.zerono.mco;
 
 import net.minecraft.block.BlockOre;
-import co.zerono.pc.blocks.BlockPC;
-import co.zerono.pc.handlers.ConfigurationHandler;
-import co.zerono.pc.handlers.GuiHandler;
-import co.zerono.pc.init.ModBlocks;
-import co.zerono.pc.init.RegOre;
-import co.zerono.pc.network.PacketHandler;
-import co.zerono.pc.proxy.IProxy;
-import co.zerono.pc.reference.Messages;
-import co.zerono.pc.reference.Reference;
-import co.zerono.pc.reference.Settings;
-import co.zerono.pc.utility.LogHelper;
+import co.zerono.mco.blocks.BlockMCO;
+import co.zerono.mco.handlers.ConfigurationHandler;
+import co.zerono.mco.handlers.GuiHandler;
+import co.zerono.mco.init.ModBlocks;
+import co.zerono.mco.network.PacketHandler;
+import co.zerono.mco.proxy.IProxy;
+import co.zerono.mco.reference.Messages;
+import co.zerono.mco.reference.Reference;
+import co.zerono.mco.reference.Settings;
+import co.zerono.mco.utility.LogHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLFingerprintViolationEvent;
@@ -22,10 +21,10 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, certificateFingerprint = Reference.FINGERPRINT, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
-public class PeriodiCraft 
+public class MyCustomOres 
 {
     @Mod.Instance(Reference.MOD_NAME)
-    public static PeriodiCraft instance;
+    public static MyCustomOres instance;
     
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static IProxy proxy;
@@ -54,7 +53,6 @@ public class PeriodiCraft
         proxy.registerKeybindings();
         // TODO ModItems.Init();
         ModBlocks.init();
-        // TODO RegOre.init();
         LogHelper.info("PreInit Complete");
     }
     

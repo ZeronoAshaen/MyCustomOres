@@ -1,6 +1,6 @@
-package co.zerono.pc.item;
+package co.zerono.mco.item;
 
-public class ItemPlaceHolder extends ItemPC
+public class ItemPlaceHolder extends ItemMCO
 {
 	public ItemPlaceHolder()
 	{

@@ -1,2 +1,2 @@
-# My Custom Ores Mod
+# PeriodiCraft
 All inclusive world gen mod for Minecraft

@@ -1,4 +1,4 @@
-package co.zerono.pc.helpers;
+package co.zerono.mco.helpers;
 
 public class StringHelper 
 {

@@ -1,8 +1,0 @@
-package co.zerono.periodicraft;
-
-
-@Mod
-public class PeriodiCraft 
-{
-
-}
