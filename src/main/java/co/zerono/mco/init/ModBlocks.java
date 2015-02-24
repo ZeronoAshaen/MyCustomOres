@@ -34,7 +34,7 @@ public class ModBlocks
 		{
 			for (int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
 			{
-				GameRegistry.registerBlock(new BlockOre(RegisterHelpers.getOreName(i), "poor", RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i)), "poor" + Settings.Ore.ORE_NAMES[i]);
+				GameRegistry.registerBlock(new BlockOre(RegisterHelpers.getOreName(i), "Poor", RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i)), "poor" + Settings.Ore.ORE_NAMES[i]);
 				LogHelper.info("Creating Poor " + Settings.Ore.ORE_NAMES[i] + " ore." );
 			}
 		}
@@ -42,7 +42,7 @@ public class ModBlocks
 		{
 			for (int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
 			{
-				GameRegistry.registerBlock(new BlockOre(RegisterHelpers.getOreName(i), "dense", RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i)), "dense" + Settings.Ore.ORE_NAMES[i]);
+				GameRegistry.registerBlock(new BlockOre(RegisterHelpers.getOreName(i), "Dense", RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i)), "dense" + Settings.Ore.ORE_NAMES[i]);
 				LogHelper.info("Creating Dense " + Settings.Ore.ORE_NAMES[i] + " ore." );
 			}
 		}

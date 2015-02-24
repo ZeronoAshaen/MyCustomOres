@@ -9,7 +9,7 @@ import co.zerono.mco.reference.Reference;
 
 public class CreativeTabMCO 
 {
-	public static final CreativeTabs MCO_ORE_TAB = new CreativeTabs(Reference.MOD_ID.toLowerCase() + ".ore")
+	public static final CreativeTabs MCO_ORE_TAB = new CreativeTabs(Reference.LOWERCASE_MOD_ID + ".ore")
 	{
 		@Override
 		public Item getTabIconItem()
@@ -17,7 +17,7 @@ public class CreativeTabMCO
 			return ModItems.itemPlaceHolder;
 		}
 	};
-	public static final CreativeTabs MCO_ITEMS_TAB = new CreativeTabs(Reference.MOD_ID.toLowerCase() + ".items")
+	public static final CreativeTabs MCO_ITEMS_TAB = new CreativeTabs(Reference.LOWERCASE_MOD_ID + ".items")
 	{
 		@Override
 		public Item getTabIconItem()

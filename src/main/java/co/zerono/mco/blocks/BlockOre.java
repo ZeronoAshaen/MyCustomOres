@@ -212,7 +212,7 @@ public class BlockOre extends BlockMCO
 	@Override
 	public BlockMCO setBlockName(String unlocalizedName)
 	{
-		super.setBlockName(Textures.RESOURCE_PREFIX + unlocalizedName);
+		super.setBlockName(unlocalizedName);
 		return this;
 	}
 	public String getName()

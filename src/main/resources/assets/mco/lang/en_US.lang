@@ -5,9 +5,34 @@ general.ores.comment=Input the information for each ore.
 #Keys
 
 #Creative Tabs
-itemGroup.pc.ore=PeriodiCraft Ores
-itemGroup.pc.items=PeriodiCraft Items
+itemGroup.mco.ore=MyCustomOres Ores
+itemGroup.mco.items=MyCustomOres Items
 
 #Items
 
-#Blocks
+#Ore
+tile.mco:oreAluminium.name=Aluminium Ore
+tile.mco:oreAluminum.name=Aluminum Ore
+tile.mco:oreCopper.name=Copper Ore
+tile.mco:oreLead.name=Lead Ore
+tile.mco:oreSilver.name=Silver Ore
+tile.mco:oreTin.name=Tin Ore
+tile.mco:oreUranium.name=Uranium Ore
+
+#Poor Ore
+tile.mco:orePoorAluminium.name=Poor Aluminium Ore
+tile.mco:orePoorAluminum.name=Poor Aluminum Ore
+tile.mco:orePoorCopper.name=Poor Copper Ore
+tile.mco:orePoorLead.name=Poor Lead Ore
+tile.mco:orePoorSilver.name=Poor Silver Ore
+tile.mco:orePoorTin.name=Poor Tin Ore
+tile.mco:orePoorUranium.name=Poor Uranium Ore
+
+#Dense Ore
+tile.mco:oreDenseAluminium.name=Dense Aluminium Ore
+tile.mco:oreDenseAluminum.name=Dense Aluminum Ore
+tile.mco:oreDenseCopper.name=Dense Copper Ore
+tile.mco:oreDenseLead.name=Dense Lead Ore
+tile.mco:oreDenseSilver.name=Dense Silver Ore
+tile.mco:oreDenseTin.name=Dense Tin Ore
+tile.mco:oreDenseUranium.name=Dense Uranium Ore

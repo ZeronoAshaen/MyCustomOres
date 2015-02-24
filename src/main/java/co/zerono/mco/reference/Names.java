@@ -8,25 +8,25 @@ public class Names
 		public static final String ORE_POOR_BLOCK = "orePoorBlock";
 		public static final String ORE_DENSE_BLOCK = "oreDenseBlock";
 		
-		public static final String[] ORE_NAME_DEFAULT = {"Zero"};
-		public static final String[] ORE_HEX_DEFAULT = {"FFFFFF"};
-		public static final String[] ORE_TOOL_CLASS_DEFAULT = {"pickaxe"};
-		public static final int[] ORE_HARVEST_LEVEL_DEFAULT = {0};
-		public static final int[] ORE_XP_DEFAULT = {1};
-		public static final int[] ORE_CHUNK_CHANCE_DEFAULT = {100};
-		public static final int[] ORE_MAX_Y_DEFAULT = {128};
-		public static final int[] ORE_MIN_Y_DEFAULT = {0};
-		public static final int[] ORE_PER_VEIN_DEFAULT = {5};
-		public static final int[] ORE_VIENS_PER_CHUNK_DEFAULT = {5};
-		public static final int[] ORE_HARD_RES_DEFAULT = {1};
-		public static final int[] ORE_LIGHT_LEVEL_DEFAULT = {0};
+		public static final String[] ORE_NAME_DEFAULT = {"Aluminium","Copper","Lead","Silver","Tin","Uranium"};
+		public static final String[] ORE_HEX_DEFAULT = {"F5FFF5","CC6600","A3A3CC","C6EBEB","FFF5F5","00FF00"};
+		public static final String[] ORE_TOOL_CLASS_DEFAULT = {"pickaxe","pickaxe","pickaxe","pickaxe","pickaxe","pickaxe"};
+		public static final int[] ORE_HARVEST_LEVEL_DEFAULT = {1,1,2,2,1,2};
+		public static final int[] ORE_XP_DEFAULT = {1,1,1,1,1,1};
+		public static final int[] ORE_CHUNK_CHANCE_DEFAULT = {100,100,75,65,100,50};
+		public static final int[] ORE_MAX_Y_DEFAULT = {128,128,64,54,128,46};
+		public static final int[] ORE_MIN_Y_DEFAULT = {1,1,1,1,1,1};
+		public static final int[] ORE_PER_VEIN_DEFAULT = {8,6,5,4,7,5};
+		public static final int[] ORE_VIENS_PER_CHUNK_DEFAULT = {7,6,4,4,8,3};
+		public static final double[] ORE_HARD_RES_DEFAULT = {1.0,1.0,2.0,2.0,1.0,2.0};
+		public static final double[] ORE_LIGHT_LEVEL_DEFAULT = {0.0,0.0,0.0,0.0,0.0,0.0};
 		
 	}
 	public static final class Items
 	{
-		public static String[] INGOT_NAMES_DEFAULT = {"Zero"};
-		public static String[] INGOT_HEX_DEFAULT = {"FFFFFF"};
-		public static int[] COOK_TIME_DEFAULT = {1};
-		public static int[] SMELT_XP_DEFAULT = {1};
+		public static String[] INGOT_NAMES_DEFAULT = {"Aluminium","Copper","Lead","Silver","Tin","Uranium"};
+		public static String[] INGOT_HEX_DEFAULT = {"F5FFF5","CC6600","A3A3CC","C6EBEB","FFF5F5","00FF00"};
+		public static double[] COOK_TIME_DEFAULT = {1.0,1.0,1.0,1.0,1.0,1.0};
+		public static double[] SMELT_XP_DEFAULT = {1.0,1.0,1.0,1.0,1.0,1.0};
 	}
 }

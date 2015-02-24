@@ -75,9 +75,9 @@ public class ConfigurationHandler
 		Settings.Ore.ORE_MIN_Y = configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_MIN_Y", Names.Blocks.ORE_MIN_Y_DEFAULT).getIntList();
 		Settings.Ore.ORE_PER_VEIN = configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_PER_VEIN", Names.Blocks.ORE_PER_VEIN_DEFAULT).getIntList();
 		Settings.Ore.ORE_VEINS_PER_CHUNK = configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_VEINS_PER_CHUNK", Names.Blocks.ORE_VIENS_PER_CHUNK_DEFAULT).getIntList();
-		Settings.Ore.ORE_HARDNESS = MathHelper.intArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_HARDNESS", Names.Blocks.ORE_HARD_RES_DEFAULT).getIntList());
-		Settings.Ore.ORE_RESISTANCE = MathHelper.intArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_RESISTANCE", Names.Blocks.ORE_HARD_RES_DEFAULT).getIntList());
-		Settings.Ore.ORE_LIGHT_LEVEL = MathHelper.intArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_LIGHT_LEVEL", Names.Blocks.ORE_HARD_RES_DEFAULT).getIntList());
+		Settings.Ore.ORE_HARDNESS = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_HARDNESS", Names.Blocks.ORE_HARD_RES_DEFAULT).getDoubleList());
+		Settings.Ore.ORE_RESISTANCE = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_RESISTANCE", Names.Blocks.ORE_HARD_RES_DEFAULT).getDoubleList());
+		Settings.Ore.ORE_LIGHT_LEVEL = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_LIGHT_LEVEL", Names.Blocks.ORE_HARD_RES_DEFAULT).getDoubleList());
 	}
 	public static void ingotConfiguration()
 	{
@@ -86,7 +86,7 @@ public class ConfigurationHandler
 		Settings.Ingot.INGOT_NAMES = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "INGOT_NAMES", Names.Items.INGOT_NAMES_DEFAULT).getStringList();
 		Settings.Ingot.INGOT_HEX = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "INGOT_HEX", Names.Items.INGOT_HEX_DEFAULT).getStringList();
 		Settings.Ingot.COOK_TIME = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "COOK_TIME", Names.Items.COOK_TIME_DEFAULT).getIntList();
-		Settings.Ingot.SMELT_XP = MathHelper.intArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_INGOTS, "SMELT_XP", Names.Items.SMELT_XP_DEFAULT).getIntList());
+		Settings.Ingot.SMELT_XP = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_INGOTS, "SMELT_XP", Names.Items.SMELT_XP_DEFAULT).getDoubleList());
 	}
 	
 	@SubscribeEvent
