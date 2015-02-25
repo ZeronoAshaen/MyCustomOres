@@ -15,13 +15,62 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModBlocks 
 {
+	public static void preInit()
+	{
+		if(Settings.Master.GEN_ORE)
+		{
+			for(BlockOre blockOre : Reference.ORE_LIST)
+			{
+				GameRegistry.registerBlock(blockOre, blockOre.getOreDictName());
+			}
+		}
+		if(Settings.Master.GEN_POOR)
+		{
+			for(BlockOre blockOre : Reference.ORE_POOR_LIST)
+			{
+				GameRegistry.registerBlock(blockOre, blockOre.getOreDictName());
+			}
+		}
+		if(Settings.Master.GEN_DENSE)
+		{
+			for(BlockOre blockOre : Reference.ORE_DENSE_LIST)
+			{
+				GameRegistry.registerBlock(blockOre, blockOre.getOreDictName());
+			}
+		}
+		LogHelper.info("Ores Created");
+		//initOreBlocks();
+	}
+	
 	public static void init()
 	{
-		initOreBlocks();
+		if(Settings.Master.GEN_ORE)
+		{
+			for(BlockOre blockOre : Reference.ORE_LIST)
+			{
+				blockOre.registerOreDict();
+			}
+		}
+		if(Settings.Master.GEN_DENSE)
+		{
+			for(BlockOre blockOre : Reference.ORE_DENSE_LIST)
+			{
+				blockOre.registerOreDict();
+			}
+		}
+		if(Settings.Master.GEN_POOR)
+		{
+			for(BlockOre blockOre : Reference.ORE_POOR_LIST)
+			{
+				blockOre.registerOreDict();
+			}
+		}
+		LogHelper.info("Ores Registered");
 	}
 	
 	public static void initOreBlocks()
 	{
+
 		if(Settings.Master.GEN_ORE)
 		{
 			for (int i=0; i<Settings.Ore.ORE_NAMES.length; i++)

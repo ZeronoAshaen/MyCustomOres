@@ -28,7 +28,7 @@ public class RawOreTexture extends TextureAtlasSprite
 	
 	public RawOreTexture(BlockOre blockOre) 
 	{
-		super(Textures.RESOURCE_PREFIX + "ore" + blockOre.getOreType() + blockOre.getName());
+		super(Textures.RESOURCE_PREFIX + blockOre.getOreDictName());
 		this.blockOre = blockOre;
 	}
 	
@@ -39,7 +39,7 @@ public class RawOreTexture extends TextureAtlasSprite
         try 
         {
         	manager.getResource(location1);
-        	LogHelper.info("Detected override for " + blockOre.getOreType() + " " + blockOre.getName() + " ore.");
+        	LogHelper.info("Detected override for " + blockOre.getOreDictName() + ".");
         	return false;
         }
         catch (IOException e)

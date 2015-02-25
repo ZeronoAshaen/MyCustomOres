@@ -18,10 +18,10 @@ public class BlockOreItem extends ItemBlock
 	@Override
 	public String getItemStackDisplayName(ItemStack itemStack)
 	{
-		String prefix = ("" + StatCollector.translateToLocal("blockOre.prefix")).trim();
-		return prefix;
+		ItemStack temp = new ItemStack(getOreBlock(), 1);
+		return temp.getDisplayName();
 	}
-	public BlockOre getBlockOre()
+	public BlockOre getOreBlock()
 	{
 		return blockOre;
 	}

@@ -5,11 +5,14 @@ import java.io.File;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+import co.zerono.mco.blocks.BlockOre;
 import co.zerono.mco.helpers.MathHelper;
+import co.zerono.mco.helpers.RegisterHelpers;
 import co.zerono.mco.reference.Messages;
 import co.zerono.mco.reference.Names;
 import co.zerono.mco.reference.Reference;
 import co.zerono.mco.reference.Settings;
+import co.zerono.mco.utility.LogHelper;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -23,6 +26,21 @@ public class ConfigurationHandler
 		{
 			configuration = new Configuration(configFile);
 			loadConfiguration();
+		}
+		for(int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
+		{
+			BlockOre blockOre = new BlockOre(Settings.Ore.ORE_NAMES[i], null, RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i));
+			Reference.ORE_LIST.add(blockOre);
+		}
+		for(int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
+		{
+			BlockOre blockOre = new BlockOre(Settings.Ore.ORE_NAMES[i], "Dense", RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i));
+			Reference.ORE_DENSE_LIST.add(blockOre);
+		}
+		for(int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
+		{
+			BlockOre blockOre = new BlockOre(Settings.Ore.ORE_NAMES[i], "Poor", RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i));
+			Reference.ORE_POOR_LIST.add(blockOre);
 		}
 	}
 	
@@ -98,12 +116,4 @@ public class ConfigurationHandler
 		}
 	}
 	
-	private static String[] seperateOnComma(String string)
-	{
-		string = string.replaceAll("\\s+", "");
-		string = string.trim();
-		
-		String[] stringArray = string.split(",", -1);
-		return stringArray;
-	}
 }

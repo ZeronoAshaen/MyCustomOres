@@ -51,14 +51,16 @@ public class MyCustomOres
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         PacketHandler.init();
         proxy.registerKeybindings();
-        // TODO ModItems.Init();
-        ModBlocks.init();
+        // TODO ModItems.preInit();
+        ModBlocks.preInit();
         LogHelper.info("PreInit Complete");
     }
     
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
+    	// Register with OreDictionary
+    	ModBlocks.init();
     	//Register the GUI Handler
         //NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
     	// Initialize Tile Entities

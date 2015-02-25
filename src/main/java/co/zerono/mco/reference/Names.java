@@ -18,7 +18,7 @@ public class Names
 		public static final int[] ORE_MIN_Y_DEFAULT = {1,1,1,1,1,1};
 		public static final int[] ORE_PER_VEIN_DEFAULT = {8,6,5,4,7,5};
 		public static final int[] ORE_VIENS_PER_CHUNK_DEFAULT = {7,6,4,4,8,3};
-		public static final double[] ORE_HARD_RES_DEFAULT = {1.0,1.0,2.0,2.0,1.0,2.0};
+		public static final double[] ORE_HARD_RES_DEFAULT = {2.0,2.0,4.0,4.0,2.0,4.0};
 		public static final double[] ORE_LIGHT_LEVEL_DEFAULT = {0.0,0.0,0.0,0.0,0.0,0.0};
 		
 	}

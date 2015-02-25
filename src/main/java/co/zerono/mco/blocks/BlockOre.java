@@ -42,27 +42,12 @@ public class BlockOre extends BlockMCO
 	public BlockOre(String oreName, String oreType, String underlyingHex, String toolClass, Integer harvestLevel, Integer oreXP, Integer chunkChance, Integer maxY, Integer minY, Integer orePerVein, Integer veinsPerChunk, Float hardness, Float resistance, Float lightLevel)
 	{
 		super(Material.rock);
-		if(oreType == null)
-		{
-			setBlockName("ore");
-			setBlockName("ore"+ WordUtils.capitalizeFully(oreName));
-			setOreType("");
-		}
-		else
-		{
-			setBlockName("ore" + oreType + WordUtils.capitalizeFully(oreName));
-			setOreType(oreType);
-		}
-		setName(oreName);
+		String thisOreType = (oreType == null) ? "" : oreType;
+		setOreType(thisOreType);
+		setBlockName("ore" + WordUtils.capitalizeFully(getOreType()) + WordUtils.capitalizeFully(oreName));
+		setOreName(oreName);
 		setUnderlyingHex(underlyingHex);
-		if (oreType == null)
-		{
-			setOreDictName("ore" + oreName);
-		}
-		else
-		{
-			setOreDictName("ore" + oreType + oreName);
-		}
+		setOreDictName("ore" + WordUtils.capitalizeFully(getOreType()) + WordUtils.capitalizeFully(oreName));
 		setToolClass(toolClass);
 		setHarvestLevel(harvestLevel);
 		setOreXP(oreXP);
@@ -107,7 +92,7 @@ public class BlockOre extends BlockMCO
 				texture = new RawOreTexture(this);
 				if (!mp.setTextureEntry(oreName, texture))
 				{
-					LogHelper.error(getName() + ": Could not add texture after creation!");
+					LogHelper.error(getOreName() + ": Could not add texture after creation!");
 				}
 			}
 			blockIcon = mp.getTextureExtry(oreName);
@@ -215,11 +200,11 @@ public class BlockOre extends BlockMCO
 		super.setBlockName(unlocalizedName);
 		return this;
 	}
-	public String getName()
+	public String getOreName()
 	{
 		return oreName;
 	}
-	public void setName(String oreName)
+	public void setOreName(String oreName)
 	{
 		this.oreName = oreName;
 	}

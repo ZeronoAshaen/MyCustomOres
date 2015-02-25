@@ -32,7 +32,7 @@ public class ItemIngot extends ItemMCO
 	{
 		super();
 		setOreName(oreName);
-		setIngotName("ingot" + WordUtils.capitalize(oreName));
+		setIngotName("ingot" + WordUtils.capitalizeFully(oreName));
 		setOreDictName(this.getOreName());
 		setUnlocalizedName(this.getOreName());
 		setBlockOre(blockOre);

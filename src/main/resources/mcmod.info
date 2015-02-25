@@ -1,9 +1,9 @@
 [
 {
-  "modid": "pc",
-  "name": "PeriodiCraft",
-  "description": "Universal World Gen!",
-  "version": "${version}",
+  "modid": "MCO",
+  "name": "My Custom Ores",
+  "description": "Universal Ore Gen!",
+  "version": "",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",

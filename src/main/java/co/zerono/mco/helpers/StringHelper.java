@@ -2,8 +2,12 @@ package co.zerono.mco.helpers;
 
 public class StringHelper 
 {
-	public String capitalizeFirstChar(String string)
+	private static String[] seperateOnComma(String string)
 	{
-		return Character.toUpperCase(string.charAt(0)) + string.substring(1);
+		string = string.replaceAll("\\s+", "");
+		string = string.trim();
+		
+		String[] stringArray = string.split(",", -1);
+		return stringArray;
 	}
 }
