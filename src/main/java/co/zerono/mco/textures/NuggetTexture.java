@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 
 import org.apache.commons.lang3.text.WordUtils;
 
-import co.zerono.mco.item.ItemIngot;
+import co.zerono.mco.item.ItemNugget;
 import co.zerono.mco.helpers.ColorHelpers;
 import co.zerono.mco.helpers.ResourceLocationHelper;
 import co.zerono.mco.reference.Reference;
@@ -23,22 +23,22 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.data.AnimationMetadataSection;
 import net.minecraft.util.ResourceLocation;
 
-public class IngotTexture extends TextureAtlasSprite
+public class NuggetTexture extends TextureAtlasSprite
 {
-	private ItemIngot itemIngot;
+	private ItemNugget itemNugget;
 	
-	public IngotTexture(ItemIngot itemIngot)
+	public NuggetTexture(ItemNugget itemNugget)
 	{
-		super(Textures.RESOURCE_PREFIX + itemIngot.getOreDictName());
-		setIngot(itemIngot);
+		super(Textures.RESOURCE_PREFIX + itemNugget.getOreDictName());
+		setIngot(itemNugget);
 	}
-	public ItemIngot getIngot()
+	public ItemNugget getIngot()
 	{
-		return itemIngot;
+		return itemNugget;
 	}
-	public void setIngot(ItemIngot itemIngot)
+	public void setIngot(ItemNugget itemNugget)
 	{
-		this.itemIngot = itemIngot;
+		this.itemNugget = itemNugget;
 	}
 	
 	@Override
@@ -48,7 +48,7 @@ public class IngotTexture extends TextureAtlasSprite
         try
         {
         	manager.getResource(location1);
-        	LogHelper.info("Detected override for " + itemIngot.getOreDictName() + ".");
+        	LogHelper.info("Detected override for " + itemNugget.getOreDictName() + ".");
         	return false;
         }
         catch(IOException e)
@@ -61,7 +61,7 @@ public class IngotTexture extends TextureAtlasSprite
 	public boolean load(IResourceManager manager, ResourceLocation location)
 	{
 		int mp = Minecraft.getMinecraft().gameSettings.mipmapLevels + 1;
-		BufferedImage[] ingotImage = new BufferedImage[mp];
+		BufferedImage[] nuggetImage = new BufferedImage[mp];
 		
 		BufferedImage alphaImage;
 		BufferedImage shapeImage;
@@ -71,16 +71,16 @@ public class IngotTexture extends TextureAtlasSprite
 		AnimationMetadataSection animation;
 		try
 		{
-			IResource iResourceAlpha = manager.getResource(ResourceLocationHelper.getResourceLocation("textures/items/ingot.png"));
-			IResource iResourceShape = manager.getResource(ResourceLocationHelper.getResourceLocation("textures/items/ingotShape.png"));
-			IResource iResourceBase = manager.getResource(ResourceLocationHelper.getResourceLocation("minecraft", "textures/items/iron_ingot.png"));
+			IResource iResourceAlpha = manager.getResource(ResourceLocationHelper.getResourceLocation("textures/items/nugget.png"));
+			IResource iResourceShape = manager.getResource(ResourceLocationHelper.getResourceLocation("textures/items/nuggetShape.png"));
+			IResource iResourceBase = manager.getResource(ResourceLocationHelper.getResourceLocation("minecraft", "textures/items/gold_nugget.png"));
 			animation = (AnimationMetadataSection) iResourceBase.getMetadata("animation");
 			alphaImage = ImageIO.read(iResourceAlpha.getInputStream());
 			shapeImage = ImageIO.read(iResourceShape.getInputStream());
 			
 			underlyingColor = new BufferedImage(alphaImage.getHeight(), alphaImage.getWidth(), BufferedImage.TYPE_4BYTE_ABGR);
 			Graphics g= underlyingColor.getGraphics();
-			g.setColor(ColorHelpers.hex2Rgb(itemIngot.getUnderlyingHex()));
+			g.setColor(ColorHelpers.hex2Rgb(itemNugget.getUnderlyingHex()));
 			for(int i=0; i<alphaImage.getHeight(); i++)
 			{
 				for (int j=0; j<alphaImage.getWidth(); j++)
@@ -104,8 +104,8 @@ public class IngotTexture extends TextureAtlasSprite
 		cg.drawImage(underlyingColor, 0, 0, null);
 		cg.drawImage(alphaImage, 0, 0, null);
 		
-		ingotImage[0] = texture;
-		this.loadSprite(ingotImage, animation, Minecraft.getMinecraft().gameSettings.anisotropicFiltering > 1.0F);
+		nuggetImage[0] = texture;
+		this.loadSprite(nuggetImage, animation, Minecraft.getMinecraft().gameSettings.anisotropicFiltering > 1.0F);
 		return false;
 	}
 }

@@ -2,6 +2,8 @@
 general.comment=You can generate any ore you could want! The language file has a slew of names for common ores. If your ore is not common then send me a pull request!
 general.master.comment=What Type of ore should be Generated?
 general.ores.comment=Input the information for each ore.
+general.ingots.comment=Input the information for any extra ingot's you want to create. An ingot is created for each ore.
+
 #Keys
 
 #Creative Tabs
@@ -10,29 +12,178 @@ itemGroup.mco.items=MyCustomOres Items
 
 #Items
 
+#Tiny Dust
+item.mco:dustTinyAdamantium.name=Adamantium Dust (Tiny)
+item.mco:dustTinyAluminium.name=Aluminium Dust (Tiny)
+item.mco:dustTinyAluminum.name=Aluminum Dust (Tiny)
+item.mco:dustTinyBrass.name=Brass Dust (Tiny)
+item.mco:dustTinyBronze.name=Bronze Dust (Tiny)
+item.mco:dustTinyChromium.name=Chromium Dust (Tiny)
+item.mco:dustTinyCopper.name=Copper Dust (Tiny)
+item.mco:dustTinyElectrum.name=Electrum Dust (Tiny)
+item.mco:dustTinyLead.name=Lead Dust (Tiny)
+item.mco:dustTinyManganese.name=Manganese Dust (Tiny)
+item.mco:dustTinyMythril.name=Mythril Dust (Tiny)
+item.mco:dustTinyPlatinum.name=Platinum Dust (Tiny)
+item.mco:dustTinyPlutonium.name=Plutonium Dust (Tiny)
+item.mco:dustTinySilver.name=Silver Dust (Tiny)
+item.mco:dustTinySteel.name=Steel Dust (Tiny)
+item.mco:dustTinyTin.name=Tin Dust (Tiny)
+item.mco:dustTinyTitanium.name=Titanium Dust (Tiny)
+item.mco:dustTinyTungsten.name=Tungsten Dust (Tiny)
+item.mco:dustTinyUranium.name=Uranium Dust (Tiny)
+item.mco:dustTinyZinc.name=Zinc Dust (Tiny)
+
+#Nugget
+item.mco:nuggetAdamantium.name=Adamantium Nugget
+item.mco:nuggetAluminium.name=Aluminium Nugget
+item.mco:nuggetAluminum.name=Aluminum Nugget
+item.mco:nuggetBrass.name=Brass Nugget
+item.mco:nuggetBronze.name=Bronze Nugget
+item.mco:nuggetChromium.name=Chromium Nugget
+item.mco:nuggetCopper.name=Copper Nugget
+item.mco:nuggetElectrum.name=Electrum Nugget
+item.mco:nuggetLead.name=Lead Nugget
+item.mco:nuggetManganese.name=Manganese Nugget
+item.mco:nuggetMythril.name=Mythril Nugget
+item.mco:nuggetPlatinum.name=Platinum Nugget
+item.mco:nuggetPlutonium.name=Plutonium Nugget
+item.mco:nuggetSilver.name=Silver Nugget
+item.mco:nuggetSteel.name=Steel Nugget
+item.mco:nuggetTin.name=Tin Nugget
+item.mco:nuggetTitanium.name=Titanium Nugget
+item.mco:nuggetTungsten.name=Tungsten Nugget
+item.mco:nuggetUranium.name=Uranium Nugget
+item.mco:nuggetZinc.name=Zinc Nugget
+
+#Dust
+item.mco:dustAdamantium.name=Adamantium Dust
+item.mco:dustAluminium.name=Aluminium Dust
+item.mco:dustAluminum.name=Aluminum Dust
+item.mco:dustBrass.name=Brass Dust
+item.mco:dustBronze.name=Bronze Dust
+item.mco:dustChromium.name=Chromium Dust
+item.mco:dustCopper.name=Copper Dust
+item.mco:dustElectrum.name=Electrum Dust
+item.mco:dustLead.name=Lead Dust
+item.mco:dustManganese.name=Manganese Dust
+item.mco:dustMythril.name=Mythril Dust
+item.mco:dustPlatinum.name=Platinum Dust
+item.mco:dustPlutonium.name=Plutonium Dust
+item.mco:dustSilver.name=Silver Dust
+item.mco:dustSteel.name=Steel Dust
+item.mco:dustTin.name=Tin Dust
+item.mco:dustTitanium.name=Titanium Dust
+item.mco:dustTungsten.name=Tungsten Dust
+item.mco:dustUranium.name=Uranium Dust
+item.mco:dustZinc.name=Zinc Dust
+
+#Ingot
+item.mco:ingotAdamantium.name=Adamantium Ingot
+item.mco:ingotAluminium.name=Aluminium Ingot
+item.mco:ingotAluminum.name=Aluminum Ingot
+item.mco:ingotBrass.name=Brass Ingot
+item.mco:ingotBronze.name=Bronze Ingot
+item.mco:ingotChromium.name=Chromium Ingot
+item.mco:ingotCopper.name=Copper Ingot
+item.mco:ingotElectrum.name=Electrum Ingot
+item.mco:ingotLead.name=Lead Ingot
+item.mco:ingotManganese.name=Manganese Ingot
+item.mco:ingotMythril.name=Mythril Ingot
+item.mco:ingotPlatinum.name=Platinum Ingot
+item.mco:ingotPlutonium.name=Plutonium Ingot
+item.mco:ingotSilver.name=Silver Ingot
+item.mco:ingotSteel.name=Steel Ingot
+item.mco:ingotTin.name=Tin Ingot
+item.mco:ingotTitanium.name=Titanium Ingot
+item.mco:ingotTungsten.name=Tungsten Ingot
+item.mco:ingotUranium.name=Uranium Ingot
+item.mco:ingotZinc.name=Zinc Ingot
+
+#Block
+tile.mco:blockAdamantium.name=Adamantium Block
+tile.mco:blockAluminium.name=Aluminium Block
+tile.mco:blockAluminum.name=Aluminum Block
+tile.mco:blockBrass.name=Brass Block
+tile.mco:blockBronze.name=Bronze Block
+tile.mco:blockChromium.name=Chromium Block
+tile.mco:blockCopper.name=Copper Block
+tile.mco:blockElectrum.name=Electrum Block
+tile.mco:blockLead.name=Lead Block
+tile.mco:blockManganese.name=Manganese Block
+tile.mco:blockMythril.name=Mythril Block
+tile.mco:blockPlatinum.name=Platinum Block
+tile.mco:blockPlutonium.name=Plutonium Block
+tile.mco:blockSilver.name=Silver Block
+tile.mco:blockSteel.name=Steel Block
+tile.mco:blockTin.name=Tin Block
+tile.mco:blockTitanium.name=Titanium Block
+tile.mco:blockTungsten.name=Tungsten Block
+tile.mco:blockUranium.name=Uranium Block
+tile.mco:blockZinc.name=Zinc Block
+
 #Ore
+tile.mco:oreAdamantium.name=Adamantium Ore
 tile.mco:oreAluminium.name=Aluminium Ore
 tile.mco:oreAluminum.name=Aluminum Ore
+tile.mco:oreBrass.name=Brass Ore
+tile.mco:oreBronze.name=Bronze Ore
+tile.mco:oreChromium.name=Chromium Ore
 tile.mco:oreCopper.name=Copper Ore
+tile.mco:oreElectrum.name=Electrum Ore
 tile.mco:oreLead.name=Lead Ore
+tile.mco:oreManganese.name=Manganese Ore
+tile.mco:oreMythril.name=Mythril Ore
+tile.mco:orePlatinum.name=Platinum Ore
+tile.mco:orePlutonium.name=Plutonium Ore
 tile.mco:oreSilver.name=Silver Ore
+tile.mco:oreSteel.name=Steel Ore
 tile.mco:oreTin.name=Tin Ore
+tile.mco:oreTitanium.name=Titanium Ore
+tile.mco:oreTungsten.name=Tungsten Ore
 tile.mco:oreUranium.name=Uranium Ore
+tile.mco:oreZinc.name=Zinc Ore
 
 #Poor Ore
-tile.mco:orePoorAluminium.name=Poor Aluminium Ore
-tile.mco:orePoorAluminum.name=Poor Aluminum Ore
-tile.mco:orePoorCopper.name=Poor Copper Ore
-tile.mco:orePoorLead.name=Poor Lead Ore
-tile.mco:orePoorSilver.name=Poor Silver Ore
-tile.mco:orePoorTin.name=Poor Tin Ore
-tile.mco:orePoorUranium.name=Poor Uranium Ore
+tile.mco:orePoorAdamantium.name=Adamantium Poor Ore
+tile.mco:orePoorAluminium.name=Aluminium Poor Ore
+tile.mco:orePoorAluminum.name=Aluminum Poor Ore
+tile.mco:orePoorBrass.name=Brass Poor Ore
+tile.mco:orePoorBronze.name=Bronze Poor Ore
+tile.mco:orePoorChromium.name=Chromium Poor Ore
+tile.mco:orePoorCopper.name=Copper Poor Ore
+tile.mco:orePoorElectrum.name=Electrum Poor Ore
+tile.mco:orePoorLead.name=Lead Poor Ore
+tile.mco:orePoorManganese.name=Manganese Poor Ore
+tile.mco:orePoorMythril.name=Mythril Poor Ore
+tile.mco:orePoorPlatinum.name=Platinum Poor Ore
+tile.mco:orePoorPlutonium.name=Plutonium Poor Ore
+tile.mco:orePoorSilver.name=Silver Poor Ore
+tile.mco:orePoorSteel.name=Steel Poor Ore
+tile.mco:orePoorTin.name=Tin Poor Ore
+tile.mco:orePoorTitanium.name=Titanium Poor Ore
+tile.mco:orePoorTungsten.name=Tungsten Poor Ore
+tile.mco:orePoorUranium.name=Uranium Poor Ore
+tile.mco:orePoorZinc.name=Zinc Poor Ore
 
 #Dense Ore
-tile.mco:oreDenseAluminium.name=Dense Aluminium Ore
-tile.mco:oreDenseAluminum.name=Dense Aluminum Ore
-tile.mco:oreDenseCopper.name=Dense Copper Ore
-tile.mco:oreDenseLead.name=Dense Lead Ore
-tile.mco:oreDenseSilver.name=Dense Silver Ore
-tile.mco:oreDenseTin.name=Dense Tin Ore
-tile.mco:oreDenseUranium.name=Dense Uranium Ore
+tile.mco:oreDenseAdamantium.name=Adamantium Dense Ore
+tile.mco:oreDenseAluminium.name=Aluminium Dense Ore
+tile.mco:oreDenseAluminum.name=Aluminum Dense Ore
+tile.mco:oreDenseBrass.name=Brass Dense Ore
+tile.mco:oreDenseBronze.name=Bronze Dense Ore
+tile.mco:oreDenseChromium.name=Chromium Dense Ore
+tile.mco:oreDenseCopper.name=Copper Dense Ore
+tile.mco:oreDenseElectrum.name=Electrum Dense Ore
+tile.mco:oreDenseLead.name=Lead Dense Ore
+tile.mco:oreDenseManganese.name=Manganese Dense Ore
+tile.mco:oreDenseMythril.name=Mythril Dense Ore
+tile.mco:oreDensePlatinum.name=Platinum Dense Ore
+tile.mco:oreDensePlutonium.name=Plutonium Dense Ore
+tile.mco:oreDenseSilver.name=Silver Dense Ore
+tile.mco:oreDenseSteel.name=Steel Dense Ore
+tile.mco:oreDenseTin.name=Tin Dense Ore
+tile.mco:oreDenseTitanium.name=Titanium Dense Ore
+tile.mco:oreDenseTungsten.name=Tungsten Dense Ore
+tile.mco:oreDenseUranium.name=Uranium Dense Ore
+tile.mco:oreDenseZinc.name=Zinc Dense Ore

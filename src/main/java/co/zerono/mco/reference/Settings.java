@@ -9,13 +9,14 @@ public class Settings
 		public static Boolean GEN_POOR;
 		public static Boolean GEN_ORE;
 		public static Boolean GEN_DENSE;
+		public static Boolean GEN_BLOCKS;
 		public static Boolean GEN_INGOTS;
 		public static Boolean GEN_DUSTS;
 		public static Boolean GEN_NUGGETS;
 		public static Boolean ADD_SMELTING;
 		public static Boolean ADD_CRAFTING;
 		public static Boolean PULVERISE_POOR_ORE;
-		public static Boolean GEN_SMALL_DUST;
+		public static Boolean GEN_TINY_DUST;
 	}
 	public static class Ore
 	{
@@ -33,7 +34,8 @@ public class Settings
 		public static float[] ORE_HARDNESS;
 		public static float[] ORE_RESISTANCE;
 		public static float[] ORE_LIGHT_LEVEL;
-		
+		public static int[] ORE_COOK_TIME;
+		public static float[] SMELT_XP;
 	}
 	public static class Ingot
 	{

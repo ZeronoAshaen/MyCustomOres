@@ -5,6 +5,7 @@ import co.zerono.mco.blocks.BlockMCO;
 import co.zerono.mco.handlers.ConfigurationHandler;
 import co.zerono.mco.handlers.GuiHandler;
 import co.zerono.mco.init.ModBlocks;
+import co.zerono.mco.init.ModItems;
 import co.zerono.mco.network.PacketHandler;
 import co.zerono.mco.proxy.IProxy;
 import co.zerono.mco.reference.Messages;
@@ -51,7 +52,7 @@ public class MyCustomOres
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         PacketHandler.init();
         proxy.registerKeybindings();
-        // TODO ModItems.preInit();
+        ModItems.preInit();
         ModBlocks.preInit();
         LogHelper.info("PreInit Complete");
     }
@@ -61,6 +62,7 @@ public class MyCustomOres
     {
     	// Register with OreDictionary
     	ModBlocks.init();
+    	ModItems.init();
     	//Register the GUI Handler
         //NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
     	// Initialize Tile Entities

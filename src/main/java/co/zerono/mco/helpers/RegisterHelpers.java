@@ -15,11 +15,11 @@ public class RegisterHelpers
 			return "Zero";
 		}
 	}
-	public static String getUnderlyingHex(int meta)
+	public static String getUnderlyingHex(int meta, String[] hexString)
 	{
-		if (Settings.Ore.ORE_HEX.length-1>=meta)
+		if (hexString.length-1>=meta)
 		{
-			return Settings.Ore.ORE_HEX[meta];
+			return hexString[meta];
 		}
 		else
 		{
@@ -141,6 +141,27 @@ public class RegisterHelpers
 		if(Settings.Ore.ORE_LIGHT_LEVEL.length-1>=meta)
 		{
 			return Settings.Ore.ORE_LIGHT_LEVEL[meta];
+		}
+		else
+		{
+			return 0.0F;
+		}
+	}
+	public static int getCookTime(int meta, int[] cookTimeArray)
+	{
+		if(cookTimeArray.length-1>=meta)
+		{
+			return cookTimeArray[meta];
+		}
+		else
+		{
+			return 1;
+		}
+	}
+	public static float getSmeltXP(int meta, float[] smeltXP)	{
+		if(smeltXP.length-1>=meta)
+		{
+			return smeltXP[meta];
 		}
 		else
 		{

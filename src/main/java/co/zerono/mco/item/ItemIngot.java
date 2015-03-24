@@ -4,6 +4,9 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import org.apache.commons.lang3.text.WordUtils;
 
@@ -26,19 +29,19 @@ public class ItemIngot extends ItemMCO
 	private int cookTime;
 	private float smeltingXP;
 	private BlockOre blockOre;
-	private ItemStack ingot = null;
 	
 	public ItemIngot(String oreName, String underlyingHex, int cookTime, BlockOre blockOre, float smeltingXP)
 	{
 		super();
-		setOreName(oreName);
-		setIngotName("ingot" + WordUtils.capitalizeFully(oreName));
-		setOreDictName(this.getOreName());
-		setUnlocalizedName(this.getOreName());
-		setBlockOre(blockOre);
-		setCookTime(cookTime);
-		setSmeltingXP(smeltingXP);
+		this.setOreName(WordUtils.capitalizeFully(oreName));
+		this.setIngotName("ingot" + getOreName());
+		this.setOreDictName(getIngotName());
+		this.setUnlocalizedName(getOreDictName());
+		this.setBlockOre(blockOre);
+		this.setCookTime(cookTime);
+		this.setSmeltingXP(smeltingXP);
 		this.setCreativeTab(CreativeTabMCO.MCO_ITEMS_TAB);
+		this.setUnderlyingHex(underlyingHex);
 	}
 	public String getIngotName()
 	{
@@ -101,22 +104,15 @@ public class ItemIngot extends ItemMCO
 	{
 		if(Settings.Master.ADD_SMELTING)
 		{
-			if(this.getBlockOre().getOreType() == "dense")
-			{
-				GameRegistry.addSmelting(this.getBlockOre(), new ItemStack(this, 2), this.smeltingXP * 2);
-			}
-			else if(this.getBlockOre().getOreType() == "poor"){}
-			else
-			{
-				GameRegistry.addSmelting(this.getBlockOre(), new ItemStack(this), this.smeltingXP);
-			}
+			GameRegistry.addSmelting(this.getBlockOre(), new ItemStack(this), this.smeltingXP);
 		}
 	}
 	public void registerCrafting()
 	{
 		if(Settings.Master.ADD_CRAFTING)
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(this, 9), "block" + WordUtils.capitalizeFully(this.getOreName()));
+			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(this, 9), "block" + getOreName()));
+			GameRegistry.addRecipe(new ShapedOreRecipe(this, "nnn","nnn","nnn",'n', "nugget" + getOreName()));
 		}
 	}
 	@Override
@@ -139,5 +135,9 @@ public class ItemIngot extends ItemMCO
 			}
 			itemIcon = mp.getTextureExtry(name);
 		}
+	}
+	public void registerOreDict()
+	{
+		OreDictionary.registerOre(getOreDictName(), this);
 	}
 }

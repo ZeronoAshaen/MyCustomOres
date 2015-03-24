@@ -5,9 +5,12 @@ import java.io.File;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+import co.zerono.mco.blocks.BlockAlloy;
 import co.zerono.mco.blocks.BlockOre;
 import co.zerono.mco.helpers.MathHelper;
 import co.zerono.mco.helpers.RegisterHelpers;
+import co.zerono.mco.item.ItemIngot;
+import co.zerono.mco.item.ItemNugget;
 import co.zerono.mco.reference.Messages;
 import co.zerono.mco.reference.Names;
 import co.zerono.mco.reference.Reference;
@@ -27,21 +30,7 @@ public class ConfigurationHandler
 			configuration = new Configuration(configFile);
 			loadConfiguration();
 		}
-		for(int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
-		{
-			BlockOre blockOre = new BlockOre(Settings.Ore.ORE_NAMES[i], null, RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i));
-			Reference.ORE_LIST.add(blockOre);
-		}
-		for(int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
-		{
-			BlockOre blockOre = new BlockOre(Settings.Ore.ORE_NAMES[i], "Dense", RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i));
-			Reference.ORE_DENSE_LIST.add(blockOre);
-		}
-		for(int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
-		{
-			BlockOre blockOre = new BlockOre(Settings.Ore.ORE_NAMES[i], "Poor", RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i));
-			Reference.ORE_POOR_LIST.add(blockOre);
-		}
+		fillLinkedLists();
 	}
 	
     private static void saveChanges()
@@ -72,12 +61,13 @@ public class ConfigurationHandler
 		Settings.Master.GEN_POOR = configuration.get(Messages.Configuration.CATEGORY_MASTER, "GEN_POOR", false).getBoolean();
 		Settings.Master.GEN_ORE = configuration.get(Messages.Configuration.CATEGORY_MASTER, "GEN_ORE", false).getBoolean();
 		Settings.Master.GEN_DENSE = configuration.get(Messages.Configuration.CATEGORY_MASTER, "GEN_DENSE", false).getBoolean();
+		Settings.Master.GEN_BLOCKS = configuration.get(Messages.Configuration.CATEGORY_MASTER, "GEN_BLOCKS", false).getBoolean();
 		Settings.Master.GEN_INGOTS = configuration.get(Messages.Configuration.CATEGORY_MASTER, "GEN_INGOTS", false).getBoolean();
 		Settings.Master.GEN_DUSTS = configuration.get(Messages.Configuration.CATEGORY_MASTER, "GEN_DUSTS", false).getBoolean();
 		Settings.Master.GEN_NUGGETS = configuration.get(Messages.Configuration.CATEGORY_MASTER, "GEN_NUGGETS", false).getBoolean();
 		Settings.Master.ADD_SMELTING = configuration.get(Messages.Configuration.CATEGORY_MASTER, "ADD_SMELTING", false).getBoolean();
 		Settings.Master.ADD_CRAFTING = configuration.get(Messages.Configuration.CATEGORY_MASTER, "ADD_CRAFTING", false).getBoolean();
-		Settings.Master.GEN_SMALL_DUST = configuration.get(Messages.Configuration.CATEGORY_MASTER, "GEN_SMALL_DUST", false).getBoolean();
+		Settings.Master.GEN_TINY_DUST = configuration.get(Messages.Configuration.CATEGORY_MASTER, "GEN_TINY_DUST", false).getBoolean();
 	}
 	public static void oreConfiguration()
 	{
@@ -96,15 +86,17 @@ public class ConfigurationHandler
 		Settings.Ore.ORE_HARDNESS = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_HARDNESS", Names.Blocks.ORE_HARD_RES_DEFAULT).getDoubleList());
 		Settings.Ore.ORE_RESISTANCE = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_RESISTANCE", Names.Blocks.ORE_HARD_RES_DEFAULT).getDoubleList());
 		Settings.Ore.ORE_LIGHT_LEVEL = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_LIGHT_LEVEL", Names.Blocks.ORE_HARD_RES_DEFAULT).getDoubleList());
+		Settings.Ore.ORE_COOK_TIME = configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_SMELT_TIME", Names.Blocks.COOK_TIME_DEFAULT).getIntList();
+		Settings.Ore.SMELT_XP = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_ORES, "ORE_SMELT_XP", Names.Blocks.SMELT_XP_DEFAULT).getDoubleList());
 	}
 	public static void ingotConfiguration()
 	{
 		configuration.setCategoryComment(Messages.Configuration.CATEGORY_INGOTS, StatCollector.translateToLocal(Messages.Configuration.GEN_INGOTS_COMMENT));
 		
-		Settings.Ingot.INGOT_NAMES = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "INGOT_NAMES", Names.Items.INGOT_NAMES_DEFAULT).getStringList();
-		Settings.Ingot.INGOT_HEX = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "INGOT_HEX", Names.Items.INGOT_HEX_DEFAULT).getStringList();
-		Settings.Ingot.COOK_TIME = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "COOK_TIME", Names.Items.COOK_TIME_DEFAULT).getIntList();
-		Settings.Ingot.SMELT_XP = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_INGOTS, "SMELT_XP", Names.Items.SMELT_XP_DEFAULT).getDoubleList());
+		//Settings.Ingot.INGOT_NAMES = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "INGOT_NAMES", Names.Items.INGOT_NAMES_DEFAULT).getStringList();
+		//Settings.Ingot.INGOT_HEX = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "INGOT_HEX", Names.Items.INGOT_HEX_DEFAULT).getStringList();
+		//Settings.Ingot.COOK_TIME = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "COOK_TIME", Names.Items.COOK_TIME_DEFAULT).getIntList();
+		//Settings.Ingot.SMELT_XP = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_INGOTS, "SMELT_XP", Names.Items.SMELT_XP_DEFAULT).getDoubleList());
 	}
 	
 	@SubscribeEvent
@@ -115,5 +107,22 @@ public class ConfigurationHandler
 			loadConfiguration();
 		}
 	}
-	
+	public static void fillLinkedLists()
+	{
+		for(int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
+		{
+			BlockOre blockOre = new BlockOre(Settings.Ore.ORE_NAMES[i], null, RegisterHelpers.getUnderlyingHex(i, Settings.Ore.ORE_HEX), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i), null);
+			Reference.ORE_LIST.add(blockOre);
+			BlockOre denseOre = new BlockOre(Settings.Ore.ORE_NAMES[i], "Dense", RegisterHelpers.getUnderlyingHex(i, Settings.Ore.ORE_HEX), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i), blockOre);
+			Reference.ORE_DENSE_LIST.add(denseOre);
+			BlockOre poorOre = new BlockOre(Settings.Ore.ORE_NAMES[i], "Poor", RegisterHelpers.getUnderlyingHex(i, Settings.Ore.ORE_HEX), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i), null);
+			Reference.ORE_POOR_LIST.add(poorOre);
+			ItemIngot itemIngot = new ItemIngot(Settings.Ore.ORE_NAMES[i], RegisterHelpers.getUnderlyingHex(i, Settings.Ore.ORE_HEX), RegisterHelpers.getCookTime(i, Settings.Ore.ORE_COOK_TIME), blockOre, RegisterHelpers.getSmeltXP(i, Settings.Ore.SMELT_XP));
+			Reference.INGOT_LIST.add(itemIngot);
+			BlockAlloy blockAlloy = new BlockAlloy(blockOre, itemIngot);
+			Reference.BLOCK_ALLOY_LIST.add(blockAlloy);
+			ItemNugget itemNugget = new ItemNugget(Settings.Ore.ORE_NAMES[i], RegisterHelpers.getUnderlyingHex(i, Settings.Ore.ORE_HEX), RegisterHelpers.getCookTime(i, Settings.Ore.ORE_COOK_TIME), poorOre, RegisterHelpers.getSmeltXP(i, Settings.Ore.SMELT_XP));
+			Reference.NUGGET_LIST.add(itemNugget);
+		}
+	}
 }

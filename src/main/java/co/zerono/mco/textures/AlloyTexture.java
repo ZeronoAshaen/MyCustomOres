@@ -3,18 +3,10 @@ package co.zerono.mco.textures;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import org.apache.commons.lang3.text.WordUtils;
-
-import co.zerono.mco.blocks.BlockOre;
-import co.zerono.mco.helpers.ResourceLocationHelper;
-import co.zerono.mco.reference.Reference;
-import co.zerono.mco.reference.Textures;
-import co.zerono.mco.utility.LogHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.IResource;
@@ -22,14 +14,22 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.data.AnimationMetadataSection;
 import net.minecraft.util.ResourceLocation;
 
-public class BlockOreTexture extends TextureAtlasSprite 
+import org.apache.commons.lang3.text.WordUtils;
+
+import co.zerono.mco.blocks.BlockAlloy;
+import co.zerono.mco.blocks.BlockOre;
+import co.zerono.mco.helpers.ResourceLocationHelper;
+import co.zerono.mco.reference.Textures;
+import co.zerono.mco.utility.LogHelper;
+
+public class AlloyTexture extends TextureAtlasSprite
 {
-	private BlockOre blockOre;
+	private BlockAlloy blockAlloy;
 	
-	public BlockOreTexture(BlockOre blockOre) 
+	public AlloyTexture(BlockAlloy blockAlloy) 
 	{
-		super(Textures.RESOURCE_PREFIX + "ore" + blockOre.getOreType() + blockOre.getOreName());
-		this.blockOre = blockOre;
+		super(Textures.RESOURCE_PREFIX + blockAlloy.getOreDictName());
+		this.blockAlloy = blockAlloy;
 	}
 	
 	@Override
@@ -39,7 +39,7 @@ public class BlockOreTexture extends TextureAtlasSprite
         try 
         {
         	manager.getResource(location1);
-        	LogHelper.info("Detected override for " + blockOre.getOreType() + " " + blockOre.getOreName() + " ore.");
+        	LogHelper.info("Detected override for " + blockAlloy.getOreDictName() + ".");
         	return false;
         }
         catch (IOException e)
@@ -53,7 +53,7 @@ public class BlockOreTexture extends TextureAtlasSprite
 	{
 		int mp = Minecraft.getMinecraft().gameSettings.mipmapLevels + 1;
 		
-		BufferedImage[] ore_image = new BufferedImage[mp];
+		BufferedImage[] alloy_image = new BufferedImage[mp];
 		
 		BufferedImage alphaImage;
 		BufferedImage underlyingColor;
@@ -62,8 +62,8 @@ public class BlockOreTexture extends TextureAtlasSprite
         AnimationMetadataSection animation;
 		try 
 		{
-			IResource iResourceAlpha = manager.getResource(ResourceLocationHelper.getResourceLocation("textures/blocks/ore" + WordUtils.capitalizeFully(blockOre.getOreType()) + ".png"));
-			IResource iResourceBase = manager.getResource(ResourceLocationHelper.getResourceLocation("minecraft", "textures/blocks/coal_ore.png"));
+			IResource iResourceAlpha = manager.getResource(ResourceLocationHelper.getResourceLocation("textures/blocks/alloyBlock.png"));
+			IResource iResourceBase = manager.getResource(ResourceLocationHelper.getResourceLocation("minecraft", "textures/blocks/iron_block.png"));
 			
 			animation = (AnimationMetadataSection) iResourceBase.getMetadata("animation");
 			
@@ -71,7 +71,7 @@ public class BlockOreTexture extends TextureAtlasSprite
 			
 			underlyingColor = new BufferedImage(alphaImage.getHeight(), alphaImage.getWidth(), BufferedImage.TYPE_3BYTE_BGR);
 			Graphics g= underlyingColor.getGraphics();
-			g.setColor(hex2Rgb(blockOre.getUnderlyingHex()));
+			g.setColor(hex2Rgb(blockAlloy.getUnderlyingHex()));
 			g.fillRect(0, 0, alphaImage.getHeight(), alphaImage.getWidth());
 		} 
 		catch (IOException e)
@@ -85,9 +85,9 @@ public class BlockOreTexture extends TextureAtlasSprite
 		cg.drawImage(underlyingColor, 0, 0, null);
 		cg.drawImage(alphaImage, 0, 0, null);
 
-		ore_image[0] = texture;
+		alloy_image[0] = texture;
 		
-		this.loadSprite(ore_image, animation, Minecraft.getMinecraft().gameSettings.anisotropicFiltering > 1.0F);
+		this.loadSprite(alloy_image, animation, Minecraft.getMinecraft().gameSettings.anisotropicFiltering > 1.0F);
 		return false;
 	}
 	

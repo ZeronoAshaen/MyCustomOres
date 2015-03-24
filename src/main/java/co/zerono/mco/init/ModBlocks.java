@@ -2,6 +2,7 @@ package co.zerono.mco.init;
 
 import net.minecraft.util.RegistryNamespaced;
 import net.minecraftforge.oredict.OreDictionary;
+import co.zerono.mco.blocks.BlockAlloy;
 import co.zerono.mco.blocks.BlockOre;
 import co.zerono.mco.blocks.BlockMCO;
 import co.zerono.mco.helpers.RegisterHelpers;
@@ -17,33 +18,54 @@ public class ModBlocks
 {
 	public static void preInit()
 	{
-		if(Settings.Master.GEN_ORE)
-		{
-			for(BlockOre blockOre : Reference.ORE_LIST)
-			{
-				GameRegistry.registerBlock(blockOre, blockOre.getOreDictName());
-			}
-		}
-		if(Settings.Master.GEN_POOR)
-		{
-			for(BlockOre blockOre : Reference.ORE_POOR_LIST)
-			{
-				GameRegistry.registerBlock(blockOre, blockOre.getOreDictName());
-			}
-		}
-		if(Settings.Master.GEN_DENSE)
-		{
-			for(BlockOre blockOre : Reference.ORE_DENSE_LIST)
-			{
-				GameRegistry.registerBlock(blockOre, blockOre.getOreDictName());
-			}
-		}
-		LogHelper.info("Ores Created");
-		//initOreBlocks();
+		preInitOreBlocks();
+		preInitAlloyBlocks();
 	}
 	
 	public static void init()
 	{
+		initOreBlocks();
+		initAlloyBlocks();
+		initBlockCrafting();
+	}
+	public static void preInitOreBlocks()
+	{
+		if(Settings.Master.GEN_ORE)
+		{
+			for(BlockOre blockOre : Reference.ORE_LIST)
+			{
+				GameRegistry.registerBlock(blockOre, blockOre.getOreDictName());
+			}
+		}
+		if(Settings.Master.GEN_POOR)
+		{
+			for(BlockOre blockOre : Reference.ORE_POOR_LIST)
+			{
+				GameRegistry.registerBlock(blockOre, blockOre.getOreDictName());
+			}
+		}
+		if(Settings.Master.GEN_DENSE)
+		{
+			for(BlockOre blockOre : Reference.ORE_DENSE_LIST)
+			{
+				GameRegistry.registerBlock(blockOre, blockOre.getOreDictName());
+			}
+		}
+		LogHelper.debug("Ores Created");
+	}
+	public static void preInitAlloyBlocks()
+	{
+		if(Settings.Master.GEN_BLOCKS)
+		{
+			for(BlockAlloy blockAlloy : Reference.BLOCK_ALLOY_LIST)
+			{
+				GameRegistry.registerBlock(blockAlloy, blockAlloy.getOreDictName());
+			}
+		}
+		LogHelper.debug("Alloy Blocks Registered.");
+	}
+	public static void initOreBlocks()
+	{
 		if(Settings.Master.GEN_ORE)
 		{
 			for(BlockOre blockOre : Reference.ORE_LIST)
@@ -65,35 +87,31 @@ public class ModBlocks
 				blockOre.registerOreDict();
 			}
 		}
-		LogHelper.info("Ores Registered");
+		LogHelper.debug("Ores Registered");
 	}
-	
-	public static void initOreBlocks()
+	public static void initAlloyBlocks()
 	{
-
-		if(Settings.Master.GEN_ORE)
+		if(Settings.Master.GEN_BLOCKS)
 		{
-			for (int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
+			for(BlockAlloy blockAlloy : Reference.BLOCK_ALLOY_LIST)
 			{
-				GameRegistry.registerBlock(new BlockOre(RegisterHelpers.getOreName(i), null, RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i)), Settings.Ore.ORE_NAMES[i]);
-				LogHelper.info("Creating " + Settings.Ore.ORE_NAMES[i] + " ore." );
+				blockAlloy.registerOreDict();
 			}
 		}
-		if(Settings.Master.GEN_POOR)
+		LogHelper.debug("Alloy Blocks Registered.");
+	}
+	public static void initBlockCrafting()
+	{
+		if(Settings.Master.ADD_CRAFTING)
 		{
-			for (int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
+			if(Settings.Master.GEN_BLOCKS)
 			{
-				GameRegistry.registerBlock(new BlockOre(RegisterHelpers.getOreName(i), "Poor", RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i)), "poor" + Settings.Ore.ORE_NAMES[i]);
-				LogHelper.info("Creating Poor " + Settings.Ore.ORE_NAMES[i] + " ore." );
+				for(BlockAlloy blockAlloy : Reference.BLOCK_ALLOY_LIST)
+				{
+					blockAlloy.registerCrafting();
+				}
 			}
 		}
-		if(Settings.Master.GEN_DENSE)
-		{
-			for (int i=0; i<Settings.Ore.ORE_NAMES.length; i++)
-			{
-				GameRegistry.registerBlock(new BlockOre(RegisterHelpers.getOreName(i), "Dense", RegisterHelpers.getUnderlyingHex(i), RegisterHelpers.getToolClass(i), RegisterHelpers.getHarvestLevel(i), RegisterHelpers.getOreXP(i), RegisterHelpers.getChunkChance(i), RegisterHelpers.getMaxY(i), RegisterHelpers.getMinY(i), RegisterHelpers.getOrePerVein(i), RegisterHelpers.getVeinsPerChunk(i), RegisterHelpers.getHardness(i), RegisterHelpers.getResistance(i), RegisterHelpers.getLight(i)), "dense" + Settings.Ore.ORE_NAMES[i]);
-				LogHelper.info("Creating Dense " + Settings.Ore.ORE_NAMES[i] + " ore." );
-			}
-		}
+		LogHelper.debug("Block Crafting Registered");
 	}
 }

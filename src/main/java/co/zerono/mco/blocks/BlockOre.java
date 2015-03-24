@@ -1,21 +1,29 @@
 package co.zerono.mco.blocks;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
 import org.apache.commons.lang3.text.WordUtils;
 
 import co.zerono.mco.creativeTab.CreativeTabMCO;
+import co.zerono.mco.reference.Settings;
 import co.zerono.mco.reference.Textures;
 import co.zerono.mco.textures.RawOreTexture;
 import co.zerono.mco.utility.LogHelper;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -36,12 +44,12 @@ public class BlockOre extends BlockMCO
 	private Float hardness;
 	private Float resistance;
 	private Float lightLevel;
-	boolean initSmelt = false;
-	private ItemStack smelt;
+	private BlockOre baseBlock;
 	
-	public BlockOre(String oreName, String oreType, String underlyingHex, String toolClass, Integer harvestLevel, Integer oreXP, Integer chunkChance, Integer maxY, Integer minY, Integer orePerVein, Integer veinsPerChunk, Float hardness, Float resistance, Float lightLevel)
+	public BlockOre(String oreName, String oreType, String underlyingHex, String toolClass, Integer harvestLevel, Integer oreXP, Integer chunkChance, Integer maxY, Integer minY, Integer orePerVein, Integer veinsPerChunk, Float hardness, Float resistance, Float lightLevel, BlockOre baseBlock)
 	{
 		super(Material.rock);
+		setBaseBlock(baseBlock);
 		String thisOreType = (oreType == null) ? "" : oreType;
 		setOreType(thisOreType);
 		setBlockName("ore" + WordUtils.capitalizeFully(getOreType()) + WordUtils.capitalizeFully(oreName));
@@ -56,21 +64,56 @@ public class BlockOre extends BlockMCO
 		setMinY(minY);
 		setOrePerVein(orePerVein);
 		setVeinsPerChunk(veinsPerChunk);
-		setHardness(hardness);
-		setResistance(resistance);
+		setOreHardness(hardness);
+		setOreResistance(resistance);
 		setLight(lightLevel);
-		this.setHardness(getHardness());
-		this.setResistance(getResistance());
+		this.setHardness(getOreHardness());
+		this.setResistance(getOreResistance());
 		this.setHarvestLevel(getToolClass(), getHarvestLevel());
 		this.setCreativeTab(CreativeTabMCO.MCO_ORE_TAB);
 		this.setLightLevel(getLight());
 	}
-	
 	@Override
+	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune)
+	{
+		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+		
+		if(getOreType().length() == 5)
+		{
+			Random ran = new Random();
+			int dropAmt = 2;
+			if(fortune>0)
+			{
+				dropAmt = ran.nextInt(fortune + 2) - 1;
+				if(dropAmt<2)
+				{
+					dropAmt = 2;
+				}
+			}
+			for(int i=0; i<dropAmt; i++)
+			{
+				ret.addAll(baseBlock.getDrops(world, x, y, z, meta, fortune));
+			}
+		}
+		else
+		{
+			ret.add(new ItemStack(this));
+		}
+		
+		return ret;
+	}
+	/*@Override
 	public Item getItemDropped(int meta, Random rand, int fortune)
 	{
-		return Item.getItemFromBlock(this);
-	}
+		if(getOreType().toLowerCase() == "dense")
+		{
+			return Item.getItemFromBlock(baseBlock);
+		}
+		else
+		{
+			return Item.getItemFromBlock(this);
+		}
+	}*/
 	@Override
 	public int damageDropped(int meta)
 	{
@@ -98,6 +141,14 @@ public class BlockOre extends BlockMCO
 			blockIcon = mp.getTextureExtry(oreName);
 		}
 	}
+	public BlockOre getBaseBlock()
+	{
+		return baseBlock;
+	}
+	public void setBaseBlock(BlockOre baseBlock)
+	{
+		this.baseBlock = baseBlock;
+	}
 	public Float getLight()
 	{
 		return lightLevel;
@@ -106,19 +157,19 @@ public class BlockOre extends BlockMCO
 	{
 		this.lightLevel = lightLevel;
 	}
-	public Float getResistance()
+	public Float getOreResistance()
 	{
 		return resistance;
 	}
-	public void setResistance(Float resistance)
+	public void setOreResistance(Float resistance)
 	{
 		this.resistance = resistance;
 	}
-	public Float getHardness()
+	public Float getOreHardness()
 	{
 		return hardness;
 	}
-	public void setHardness(Float hardness)
+	public void setOreHardness(Float hardness)
 	{
 		this.hardness = hardness;
 	}
