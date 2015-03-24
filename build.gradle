@@ -15,32 +15,35 @@ buildscript {
     }
 }
 
+apply plugin: 'java'
 apply plugin: 'forge'
+apply plugin: 'curseforge'
+apply plugin: 'maven'
 
-version = "1.0"
-group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+ext.configFile = file "build.properties"
+
+configFile.withReader {
+	def prop = new Properties()
+	prop.load(it)
+	project.ext.config = new ConfigSlurper().parse prop
+}
+
+version = config.mod_version
+group= "co.zerono.mco" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "MyCustomOres"
 
 minecraft {
-    version = "1.7.10-10.13.2.1258"
-    runDir = "eclipse"
+    version = config.minecraft_version + "-" + config.forge_version
+	
+	replaceIn "reference/Reference.java"
+	replace "@VERSION@", "${config.mod_version}.${System.getenv("BUILD_NUMBER") ?: 0}"
+	if (project.hasProperty("mco_signature")) {
+		replace "@FINGERPRINT@", project.mco_signature
+	}
+    //runDir = "eclipse"
 }
 
-dependencies {
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-      
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
-}
+version = "${config.minecraft_version}-${config.mod_version}.${System.getenv("BUILD_NUMBER") ?:0}"
 
 processResources
 {
@@ -60,4 +63,25 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+
+task devJar(type: Jar, dependsOn: 'classes') {
+    from(sourceSets.main.output) {
+        include '**'
+    }
+
+    extension = 'jar'
+    classifier = 'dev'
+}
+
+artifacts {
+    archives devJar
+}
+
+curse {
+    projectId = project.hasProperty('curseForgeProjectId') ? project.curseForgeProjectId : ''
+    apiKey = project.hasProperty('curseForgeApiKey') ? project.curseForgeApiKey : ''
+    releaseType = project.hasProperty('release_type') ? project.release_type: 'Alpha'
+	displayName = 'MyCustomOres'
+	changelog = project.hasProperty('change_log') ? project.change_log: ''
 }
