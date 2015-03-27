@@ -16,3 +16,6 @@
 /.classpath
 /.project
 /bin
+
+## files
+*.xcf

@@ -65,12 +65,9 @@ public class MyCustomOres
     	ModItems.init();
     	//Register the GUI Handler
         //NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
-    	// Initialize Tile Entities
-    	// Initialize custom rendering and pre-load textures (Client only)
     	// Register the Items Event Handler
     	proxy.registerEventHandlers();
     	
-        // TODO Recipes.Init();
         // Register the Waila data provider
         // TODO
         
@@ -81,9 +78,6 @@ public class MyCustomOres
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        // Register recipes
-    	
-    	
     	LogHelper.info("postInit Complete");
     }
 }

@@ -50,8 +50,7 @@ public class BlockOre extends BlockMCO
 	{
 		super(Material.rock);
 		setBaseBlock(baseBlock);
-		String thisOreType = (oreType == null) ? "" : oreType;
-		setOreType(thisOreType);
+		setOreType((oreType == null) ? "" : oreType);
 		setBlockName("ore" + WordUtils.capitalizeFully(getOreType()) + WordUtils.capitalizeFully(oreName));
 		setOreName(oreName);
 		setUnderlyingHex(underlyingHex);

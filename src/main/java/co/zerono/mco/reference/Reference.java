@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import co.zerono.mco.blocks.BlockAlloy;
 import co.zerono.mco.blocks.BlockOre;
+import co.zerono.mco.item.ItemDust;
 import co.zerono.mco.item.ItemIngot;
 import co.zerono.mco.item.ItemNugget;
 
@@ -23,7 +24,8 @@ public class Reference
 	public static LinkedList<BlockOre> ORE_POOR_LIST = new LinkedList<BlockOre>();
 	public static LinkedList<BlockAlloy> BLOCK_ALLOY_LIST = new LinkedList<BlockAlloy>();
 	public static LinkedList<ItemIngot> INGOT_LIST = new LinkedList<ItemIngot>();
-	//public static LinkedList<ItemDust> DUST_LIST = new LinkedList<ItemDust>();
+	public static LinkedList<ItemDust> DUST_LIST = new LinkedList<ItemDust>();
 	public static LinkedList<ItemNugget> NUGGET_LIST = new LinkedList<ItemNugget>();
+	public static LinkedList<ItemDust> TINY_DUST_LIST = new LinkedList<ItemDust>();
 	
 }

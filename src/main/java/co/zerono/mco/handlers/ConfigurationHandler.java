@@ -9,6 +9,7 @@ import co.zerono.mco.blocks.BlockAlloy;
 import co.zerono.mco.blocks.BlockOre;
 import co.zerono.mco.helpers.MathHelper;
 import co.zerono.mco.helpers.RegisterHelpers;
+import co.zerono.mco.item.ItemDust;
 import co.zerono.mco.item.ItemIngot;
 import co.zerono.mco.item.ItemNugget;
 import co.zerono.mco.reference.Messages;
@@ -123,6 +124,10 @@ public class ConfigurationHandler
 			Reference.BLOCK_ALLOY_LIST.add(blockAlloy);
 			ItemNugget itemNugget = new ItemNugget(Settings.Ore.ORE_NAMES[i], RegisterHelpers.getUnderlyingHex(i, Settings.Ore.ORE_HEX), RegisterHelpers.getCookTime(i, Settings.Ore.ORE_COOK_TIME), poorOre, RegisterHelpers.getSmeltXP(i, Settings.Ore.SMELT_XP));
 			Reference.NUGGET_LIST.add(itemNugget);
+			ItemDust itemDust = new ItemDust(Settings.Ore.ORE_NAMES[i], RegisterHelpers.getUnderlyingHex(i, Settings.Ore.ORE_HEX), RegisterHelpers.getCookTime(i, Settings.Ore.ORE_COOK_TIME), RegisterHelpers.getSmeltXP(i, Settings.Ore.SMELT_XP), itemIngot, false, itemNugget);
+			Reference.DUST_LIST.add(itemDust);
+			ItemDust itemTinyDust = new ItemDust(Settings.Ore.ORE_NAMES[i], RegisterHelpers.getUnderlyingHex(i, Settings.Ore.ORE_HEX), RegisterHelpers.getCookTime(i, Settings.Ore.ORE_COOK_TIME), RegisterHelpers.getSmeltXP(i, Settings.Ore.SMELT_XP), itemIngot, true, itemNugget);
+			Reference.TINY_DUST_LIST.add(itemTinyDust);
 		}
 	}
 }

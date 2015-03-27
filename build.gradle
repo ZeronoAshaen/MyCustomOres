@@ -47,21 +47,20 @@ version = "${config.minecraft_version}-${config.mod_version}.${System.getenv("BU
 
 processResources
 {
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
+	// exclude xcf files, as they are for development only
+	exclude '**/*.xcf'
+	
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
+        include '*.info'
                 
         // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand 'mod_version':project.version, 'minecraft_version':project.config.minecraft_version
     }
         
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
+        exclude '**/*.info'
     }
 }
 
@@ -79,9 +78,9 @@ artifacts {
 }
 
 curse {
-    projectId = project.hasProperty('curseForgeProjectId') ? project.curseForgeProjectId : ''
-    apiKey = project.hasProperty('curseForgeApiKey') ? project.curseForgeApiKey : ''
-    releaseType = project.hasProperty('release_type') ? project.release_type: 'Alpha'
+    projectId = properties.curseForgeProjectId
+    apiKey = properties.curseForgeApiKey
+    releaseType = properties.release_type
 	displayName = 'MyCustomOres'
-	changelog = project.hasProperty('change_log') ? project.change_log: ''
+	changelog = properties.change_log
 }

@@ -1,6 +1,7 @@
 package co.zerono.mco.init;
 
 import net.minecraft.block.Block;
+import co.zerono.mco.item.ItemDust;
 import co.zerono.mco.item.ItemIngot;
 import co.zerono.mco.item.ItemMCO;
 import co.zerono.mco.item.ItemNugget;
@@ -32,11 +33,17 @@ public class ModItems
 		}
 		if(Settings.Master.GEN_DUSTS)
 		{
-			
+			for(ItemDust itemDust : Reference.DUST_LIST)
+			{
+				GameRegistry.registerItem(itemDust, itemDust.getOreDictName());
+			}
 		}
 		if(Settings.Master.GEN_TINY_DUST)
 		{
-			
+			for(ItemDust itemTinyDust : Reference.TINY_DUST_LIST)
+			{
+				GameRegistry.registerItem(itemTinyDust, itemTinyDust.getOreDictName());
+			}
 		}
 	}
 	public static void init()
@@ -61,11 +68,21 @@ public class ModItems
 		}
 		if(Settings.Master.GEN_DUSTS)
 		{
-			
+			for(ItemDust itemDust : Reference.DUST_LIST)
+			{
+				itemDust.registerOreDict();
+				itemDust.registerCrafting();
+				itemDust.registerSmelting();
+			}
 		}
 		if(Settings.Master.GEN_TINY_DUST)
 		{
-			
+			for(ItemDust itemTinyDust : Reference.TINY_DUST_LIST)
+			{
+				itemTinyDust.registerOreDict();
+				itemTinyDust.registerCrafting();
+				itemTinyDust.registerSmelting();
+			}
 		}
 	}
 }
