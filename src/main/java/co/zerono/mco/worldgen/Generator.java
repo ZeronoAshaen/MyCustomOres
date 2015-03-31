@@ -15,49 +15,69 @@ import cpw.mods.fml.common.IWorldGenerator;
 
 public class Generator implements IWorldGenerator
 {
+	private static Random rand = new Random();
+	
 	@Override
-	public void generate(Random random, int cX, int cZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
 	{
-		
-	}
-	
-	private void generateOre(Random random, int cX, int cZ, World world)
-	{
-		for(BlockOre blockOre : Reference.ORE_LIST)
+		switch (world.provider.dimensionId)
 		{
-			addOreSpawn(blockOre, world, random, cX, cZ, blockOre.getOrePerVein(), blockOre.getChunkChance(), blockOre.getMinY(), blockOre.getMaxY());
-			
+			case -1:
+				generateNether(world, random, chunkX * 16, chunkZ * 16);
+			case 1:
+				generateEnd(world, random, chunkX * 16, chunkZ * 16);
+			default:
+				generateDim(world, random, chunkX * 16, chunkZ * 16);
 		}
 	}
 	
-	public void addOreSpawn(BlockOre blockOre, World world, Random random, int blockPosX, int blockPosZ, int orePerVein, int chunkChance, int minY, int maxY)
-	{
-		int oreMin = (orePerVein == 2) ? 1 : orePerVein;
-		int oreMax = orePerVein;
-
-		for(int i=0; i<chunkChance; i++)
-		{
-			int posX = blockPosX + random.nextInt(16);
-			int posZ = blockPosZ + random.nextInt(16);
-			int posY = minY + random.nextInt(16);
-			new WorldGenMinable(blockOre, (oreMin + random.nextInt(oreMax - oreMin)), Blocks.stone).generate(world, random, posX, posY, posZ);
-		}
-	}
-	
-	private void generateNether(Random random, int cX, int cZ, World world)
-	{
-		// TODO
-	}
-	
-	private void generateEnd(Random random, int cX, int cZ, World world)
-	{
-		// TODO
-	}
-	
-	private void generateSurface(Random random, int cX, int cZ, World world)
+	private void generateEnd(World world, Random random, int x, int z)
 	{
 		
 	}
-	
-	
+	private void generateNether(World world, Random random, int x,int z)
+	{
+		
+	}
+	private void generateDim(World world, Random random, int x, int z)
+	{
+		if(Settings.Master.GEN_ORE)
+		{
+			for(BlockOre blockOre : Reference.ORE_LIST)
+			{
+				this.addOreSpawn(blockOre, world, random, x, z, 16, 16, blockOre.getOrePerVein(), blockOre.getChunkChance(), blockOre.getMinY(), blockOre.getMaxY());
+			}
+		}
+		if(Settings.Master.GEN_DENSE)
+		{
+			for(BlockOre blockOre : Reference.ORE_DENSE_LIST)
+			{
+				this.addOreSpawn(blockOre, world, random, x, z, 16, 16, blockOre.getOrePerVein(), blockOre.getChunkChance(), blockOre.getMinY(), blockOre.getMaxY());
+			}
+		}
+		if(Settings.Master.GEN_POOR)
+		{
+			for(BlockOre blockOre : Reference.ORE_POOR_LIST)
+			{
+				this.addOreSpawn(blockOre, world, random, x, z, 16, 16, blockOre.getOrePerVein(), blockOre.getChunkChance(), blockOre.getMinY(), blockOre.getMaxY());
+			}
+		}
+	}
+	public void addOreSpawn(BlockOre blockOre, World world, Random random, int xPos, int zPos, int maxX, int maxZ, int orePerVein, int chunkChance, int minY, int maxY)
+	{
+		assert maxY > minY : "The maximum Y must be greater than the Minimum Y";
+		assert maxX > 0 && maxX <= 16 : "addOreSpawn: The Maximum X must be greater than 0 and less than 16";
+		assert minY > 0 : "addOreSpawn: The Minimum Y must be greater than 0";
+		assert maxY < 256 && maxY > 0 : "addOreSpawn: The Maximum Y must be less than 256 but greater than 0";
+		assert maxZ > 0 && maxZ <= 16 : "addOreSpawn: The Maximum Z must be greater than 0 and less than 16";
+		
+		int difMinMaxY = maxY - minY;
+		for (int x = 0; x < chunkChance; x++)
+		{
+			int posX = xPos + random.nextInt(maxX);
+			int posY = minY + random.nextInt(difMinMaxY);
+			int posZ = zPos + random.nextInt(maxZ);
+			(new WorldGenMinable(blockOre, orePerVein)).generate(world, random, posX, posY, posZ);
+		}
+	}
 }

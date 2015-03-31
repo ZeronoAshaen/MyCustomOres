@@ -78,8 +78,8 @@ artifacts {
 }
 
 curse {
+	apiKey = properties.curseForgeApiKey
     projectId = properties.curseForgeProjectId
-    apiKey = properties.curseForgeApiKey
     releaseType = properties.release_type
 	displayName = 'MyCustomOres'
 	changelog = properties.change_log

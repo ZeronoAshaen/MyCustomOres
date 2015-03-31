@@ -12,6 +12,7 @@ import co.zerono.mco.reference.Messages;
 import co.zerono.mco.reference.Reference;
 import co.zerono.mco.reference.Settings;
 import co.zerono.mco.utility.LogHelper;
+import co.zerono.mco.worldgen.Generator;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLFingerprintViolationEvent;
@@ -19,6 +20,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, certificateFingerprint = Reference.FINGERPRINT, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
@@ -55,6 +57,7 @@ public class MyCustomOres
         ModItems.preInit();
         ModBlocks.preInit();
         LogHelper.info("PreInit Complete");
+        //GameRegistry.registerWorldGenerator(new Generator(), 16);
     }
     
     @Mod.EventHandler
