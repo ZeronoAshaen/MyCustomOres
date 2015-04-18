@@ -57,7 +57,7 @@ public class MyCustomOres
         ModItems.preInit();
         ModBlocks.preInit();
         LogHelper.info("PreInit Complete");
-        //GameRegistry.registerWorldGenerator(new Generator(), 16);
+        GameRegistry.registerWorldGenerator(new Generator(), 16);
     }
     
     @Mod.EventHandler
