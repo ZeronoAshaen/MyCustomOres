@@ -6,7 +6,6 @@ import co.zerono.mco.blocks.BlockAlloy;
 import co.zerono.mco.blocks.BlockOre;
 import co.zerono.mco.blocks.BlockMCO;
 import co.zerono.mco.helpers.RegisterHelpers;
-import co.zerono.mco.item.BlockOreItem;
 import co.zerono.mco.reference.Reference;
 import co.zerono.mco.reference.Settings;
 import co.zerono.mco.utility.LogHelper;

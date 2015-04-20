@@ -45,6 +45,7 @@ public class BlockOre extends BlockMCO
 	private Float resistance;
 	private Float lightLevel;
 	private BlockOre baseBlock;
+	private Block vanillaBlock;
 	
 	public BlockOre(String oreName, String oreType, String underlyingHex, String toolClass, Integer harvestLevel, Integer oreXP, Integer chunkChance, Integer maxY, Integer minY, Integer orePerVein, Integer veinsPerChunk, Float hardness, Float resistance, Float lightLevel, BlockOre baseBlock)
 	{
@@ -72,6 +73,33 @@ public class BlockOre extends BlockMCO
 		this.setCreativeTab(CreativeTabMCO.MCO_ORE_TAB);
 		this.setLightLevel(getLight());
 	}
+	// TODO get Vanilla ores setup
+	/*public BlockOre(String oreName, String oreType, String underlyingHex, Integer maxY, Integer orePerVein, Integer veinsPerChunk, Block block)
+	{
+		super(Material.rock);
+		setVanillaBlock(block);
+		setOreType(oreType);
+		setBlockName("ore" + WordUtils.capitalizeFully(getOreType()) + WordUtils.capitalizeFully(oreName));
+		setOreName(oreName);
+		setUnderlyingHex(underlyingHex);
+		setOreDictName("ore" + WordUtils.capitalizeFully(getOreType()) + WordUtils.capitalizeFully(oreName));
+		setToolClass(block.getHarvestTool(0));
+		setHarvestLevel(block.getHarvestLevel(0));
+		setOreXP(1);
+		setChunkChance(1);
+		setMaxY(maxY);
+		setMinY(0);
+		setOrePerVein(orePerVein);
+		setVeinsPerChunk(veinsPerChunk);
+		setOreHardness(1.0F);
+		setOreResistance(1.0F);
+		setLight(0.0F);
+		this.setHardness(getOreHardness());
+		this.setResistance(getOreResistance());
+		this.setHarvestLevel(getToolClass(), getHarvestLevel());
+		this.setCreativeTab(CreativeTabMCO.MCO_ORE_TAB);
+		this.setLightLevel(getLight());
+	}*/
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune)
 	{
@@ -139,6 +167,14 @@ public class BlockOre extends BlockMCO
 			}
 			blockIcon = mp.getTextureExtry(oreName);
 		}
+	}
+	public Block getVanillaBlock()
+	{
+		return vanillaBlock;
+	}
+	public void setVanillaBlock(Block block)
+	{
+		this.vanillaBlock = block;
 	}
 	public BlockOre getBaseBlock()
 	{

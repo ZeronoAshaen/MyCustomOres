@@ -1,5 +1,7 @@
 package co.zerono.mco.reference;
 
+import net.minecraft.block.Block;
+
 public class Names 
 {
 	public static final class Blocks
@@ -20,15 +22,23 @@ public class Names
 		public static final int[] ORE_VIENS_PER_CHUNK_DEFAULT = {7,6,4,4,8,3};
 		public static final double[] ORE_HARD_RES_DEFAULT = {2.0,2.0,4.0,4.0,2.0,4.0};
 		public static final double[] ORE_LIGHT_LEVEL_DEFAULT = {0.0,0.0,0.0,0.0,0.0,0.0};
-		public static double[] COOK_TIME_DEFAULT = {1.0,1.0,1.0,1.0,1.0,1.0};
-		public static double[] SMELT_XP_DEFAULT = {1.0,1.0,1.0,1.0,1.0,1.0};
+		public static final double[] COOK_TIME_DEFAULT = {1.0,1.0,1.0,1.0,1.0,1.0};
+		public static final double[] SMELT_XP_DEFAULT = {1.0,1.0,1.0,1.0,1.0,1.0};
 		
+		public static final String[] VANILLA_ORE_HEX = {"363636", "FFFFFF", "FFFF0B"};
+		public static final int[] VANILLA_ORE_MAX_Y = {120,64,32};
+		public static final int[] VANILLA_ORE_VEINS_PER_CHUNK = {12,8,3};
+		public static final int[] VANILLA_ORE_PER_VEIN = {32,24,16};
 	}
 	public static final class Items
 	{
-		public static String[] INGOT_NAMES_DEFAULT = {"Aluminium","Copper","Lead","Silver","Tin","Uranium"};
-		public static String[] INGOT_HEX_DEFAULT = {"F5FFF5","CC6600","A3A3CC","C6EBEB","FFF5F5","00FF00"};
-		public static double[] COOK_TIME_DEFAULT = {1.0,1.0,1.0,1.0,1.0,1.0};
-		public static double[] SMELT_XP_DEFAULT = {1.0,1.0,1.0,1.0,1.0,1.0};
+		public static String[] INGOT_NAMES_DEFAULT = {};
+		public static String[] INGOT_HEX_DEFAULT = {};
+		public static String[] DUST_A_NAME_DEFAULT = {};
+		public static int[] DUST_A_AMOUNT_DEFAULT = {};
+		public static String[] DUST_B_NAME_DEFAULT = {};
+		public static int[] DUST_B_AMOUNT_DEFAULT = {};
+		public static double[] COOK_TIME_DEFAULT = {};
+		public static double[] SMELT_XP_DEFAULT = {};
 	}
 }

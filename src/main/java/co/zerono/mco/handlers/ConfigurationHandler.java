@@ -2,6 +2,7 @@ package co.zerono.mco.handlers;
 
 import java.io.File;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
@@ -16,6 +17,7 @@ import co.zerono.mco.reference.Messages;
 import co.zerono.mco.reference.Names;
 import co.zerono.mco.reference.Reference;
 import co.zerono.mco.reference.Settings;
+import co.zerono.mco.reference.Names.Items;
 import co.zerono.mco.utility.LogHelper;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -94,10 +96,14 @@ public class ConfigurationHandler
 	{
 		configuration.setCategoryComment(Messages.Configuration.CATEGORY_INGOTS, StatCollector.translateToLocal(Messages.Configuration.GEN_INGOTS_COMMENT));
 		
-		//Settings.Ingot.INGOT_NAMES = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "INGOT_NAMES", Names.Items.INGOT_NAMES_DEFAULT).getStringList();
-		//Settings.Ingot.INGOT_HEX = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "INGOT_HEX", Names.Items.INGOT_HEX_DEFAULT).getStringList();
-		//Settings.Ingot.COOK_TIME = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "COOK_TIME", Names.Items.COOK_TIME_DEFAULT).getIntList();
-		//Settings.Ingot.SMELT_XP = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_INGOTS, "SMELT_XP", Names.Items.SMELT_XP_DEFAULT).getDoubleList());
+		Settings.Ingot.INGOT_NAME = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "INGOT_NAMES", Names.Items.INGOT_NAMES_DEFAULT).getStringList();
+		Settings.Ingot.INGOT_HEX = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "INGOT_HEX", Names.Items.INGOT_HEX_DEFAULT).getStringList();
+		Settings.Ingot.DUST_A_NAME = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "DUST_A_NAME", Names.Items.DUST_A_NAME_DEFAULT).getStringList();
+		Settings.Ingot.DUST_A_AMOUNT = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "DUST_A_AMOUNT", Names.Items.DUST_A_AMOUNT_DEFAULT).getIntList();
+		Settings.Ingot.DUST_B_NAME = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "DUST_B_NAME", Names.Items.DUST_B_NAME_DEFAULT).getStringList();
+		Settings.Ingot.DUST_B_AMOUNT = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "DUST_B_AMOUNT", Names.Items.DUST_B_AMOUNT_DEFAULT).getIntList();
+		Settings.Ingot.COOK_TIME = configuration.get(Messages.Configuration.CATEGORY_INGOTS, "COOK_TIME", Names.Items.COOK_TIME_DEFAULT).getIntList();
+		Settings.Ingot.SMELT_XP = MathHelper.doubleArrayToFloatArray(configuration.get(Messages.Configuration.CATEGORY_INGOTS, "SMELT_XP", Names.Items.SMELT_XP_DEFAULT).getDoubleList());
 	}
 	
 	@SubscribeEvent
@@ -129,5 +135,15 @@ public class ConfigurationHandler
 			ItemDust itemTinyDust = new ItemDust(Settings.Ore.ORE_NAMES[i], RegisterHelpers.getUnderlyingHex(i, Settings.Ore.ORE_HEX), RegisterHelpers.getCookTime(i, Settings.Ore.ORE_COOK_TIME), RegisterHelpers.getSmeltXP(i, Settings.Ore.SMELT_XP), itemIngot, true, itemNugget);
 			Reference.TINY_DUST_LIST.add(itemTinyDust);
 		}
+		// TODO get vanilla ores setup
+		//BlockOre ironDense = new BlockOre("Iron","Dense","FFFFFF",64,8,24,Blocks.iron_ore);
+		//Reference.VANILLA_DENSE_LIST.add(ironDense);
+		//BlockOre goldDense = new BlockOre("Gold","Desne","FFFF0B",32,3,16,Blocks.gold_ore);
+		//Reference.VANILLA_DENSE_LIST.add(goldDense);
+
+		//BlockOre ironPoor = new BlockOre("Iron","Poor","FFFFFF",64,8,24,Blocks.iron_ore);
+		//Reference.VANILLA_POOR_LIST.add(ironPoor);
+		//BlockOre goldPoor = new BlockOre("Gold","Poor","FFFF0B",32,3,16,Blocks.gold_ore);
+		//Reference.VANILLA_POOR_LIST.add(goldPoor);
 	}
 }

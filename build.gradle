@@ -29,21 +29,21 @@ configFile.withReader {
 }
 
 version = config.mod_version
-group= "co.zerono.mco" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group= "co.zerono.mco"
 archivesBaseName = "MyCustomOres"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version
 	
 	replaceIn "reference/Reference.java"
-	replace "@VERSION@", "${config.mod_version}.${System.getenv("BUILD_NUMBER") ?: 0}"
+	replace "@VERSION@", "${config.mod_version}.${System.getenv().BUILD_NUMBER ?: 0}"
 	if (project.hasProperty("mco_signature")) {
 		replace "@FINGERPRINT@", project.mco_signature
 	}
     //runDir = "eclipse"
 }
 
-version = "${config.minecraft_version}-${config.mod_version}.${System.getenv("BUILD_NUMBER") ?:0}"
+version = "${config.minecraft_version}-${config.mod_version}.${config.build_number}"
 
 processResources
 {

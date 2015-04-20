@@ -28,4 +28,10 @@ public class Reference
 	public static LinkedList<ItemNugget> NUGGET_LIST = new LinkedList<ItemNugget>();
 	public static LinkedList<ItemDust> TINY_DUST_LIST = new LinkedList<ItemDust>();
 	
+	public static LinkedList<BlockOre> VANILLA_DENSE_LIST = new LinkedList<BlockOre>();
+	public static LinkedList<BlockOre> VANILLA_POOR_LIST = new LinkedList<BlockOre>();
+	public static LinkedList<BlockAlloy> VANILLA_ALLOY_LIST = new LinkedList<BlockAlloy>();
+	public static LinkedList<ItemIngot> VANILLA_INGOT_LIST = new LinkedList<ItemIngot>();
+	public static LinkedList<ItemDust> VANILLA_DUST_LIST = new LinkedList<ItemDust>();
+	public static LinkedList<ItemNugget> VANILLA_NUGGET_LIST = new LinkedList<ItemNugget>();
 }

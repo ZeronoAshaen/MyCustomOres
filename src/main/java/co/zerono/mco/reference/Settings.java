@@ -39,8 +39,12 @@ public class Settings
 	}
 	public static class Ingot
 	{
-		public static String[] INGOT_NAMES;
+		public static String[] INGOT_NAME;
 		public static String[] INGOT_HEX;
+		public static String[] DUST_A_NAME;
+		public static int[] DUST_A_AMOUNT;
+		public static String[] DUST_B_NAME;
+		public static int[] DUST_B_AMOUNT;
 		public static int[] COOK_TIME;
 		public static float[] SMELT_XP;
 	}

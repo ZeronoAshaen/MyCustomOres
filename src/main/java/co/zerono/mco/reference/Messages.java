@@ -16,6 +16,9 @@ public class Messages
     	public static final String CATEGORY_ORES = "general.ores";
     	public static final String CATEGORY_MASTER = "general.master";
     	public static final String CATEGORY_INGOTS = "general.ingots";
+    	public static final String CATEGORY_INGOTS_TWO = "general.ingots.two";
+    	public static final String CATEGORY_INGOTS_THREE = "general.ingots.three";
+    	public static final String CATEGORY_INGOTS_FOUR = "general.ingots.four";
 
     	public static final class Debug
     	{
