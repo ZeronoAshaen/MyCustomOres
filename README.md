@@ -1,7 +1,7 @@
 # Welcome to MyCustomOres
 **LATEST OFFICIAL VERSION**: [MCO 0.2.1 for MC 1.7.10](http://minecraft.curseforge.com/mc-mods/228095-mycustomores)
 
-[Contributin](#contributin) - fFor those that want to help out.
+[Contributing](#contributing) - For those that want to help out.
 
 This is a mod for Minecraft that allows the user to generate custom ores for world generation just by modifying the configuration file.
 
