@@ -32,13 +32,20 @@ public class Names
 	}
 	public static final class Items
 	{
-		public static String[] INGOT_NAMES_DEFAULT = {};
-		public static String[] INGOT_HEX_DEFAULT = {};
-		public static String[] DUST_A_NAME_DEFAULT = {};
-		public static int[] DUST_A_AMOUNT_DEFAULT = {};
-		public static String[] DUST_B_NAME_DEFAULT = {};
-		public static int[] DUST_B_AMOUNT_DEFAULT = {};
-		public static double[] COOK_TIME_DEFAULT = {};
-		public static double[] SMELT_XP_DEFAULT = {};
+		public static String[] ALLOY_NAMES_DEFAULT = {"Zero", "Blargh"};
+		public static String[] ALLOY_HEX_DEFAULT = {"232323", "323232"};
+		public static int[] PRODUCED_AMOUNT_DEFAULT = {5,5};
+		public static String[] DUST_A_NAME_DEFAULT = {"silver", "lead"};
+		public static int[] DUST_A_AMOUNT_DEFAULT = {3,3};
+		public static String[] DUST_B_NAME_DEFAULT = {"lead","silver"};
+		public static int[] DUST_B_AMOUNT_DEFAULT = {2,2};
+		public static String[] DUST_C_NAME_DEFUALT = {};
+		public static int[]	DUST_C_AMOUNT_DEFAULT = {};
+		public static double[] COOK_TIME_DEFAULT = {1.0,1.0};
+		public static double[] SMELT_XP_DEFAULT = {1.0,1.0};
+		public static int[] HARVEST_LEVEL_DEFAULT = {2,2};
+		public static double[] ALLOY_HARDNESS_DEFAULT = {2.0,2.0};
+		public static double[] ALLOY_RESISTANCE_DEFAULT = {2.0,2.0};
+		public static double[] ALLOY_LIGHT_LEVEL_DEFAULT = {0.0,0.0};
 	}
 }

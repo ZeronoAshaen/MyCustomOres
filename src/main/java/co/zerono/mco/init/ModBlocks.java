@@ -5,7 +5,9 @@ import net.minecraftforge.oredict.OreDictionary;
 import co.zerono.mco.blocks.BlockAlloy;
 import co.zerono.mco.blocks.BlockOre;
 import co.zerono.mco.blocks.BlockMCO;
+import co.zerono.mco.blocks.BlockSpecialAlloy;
 import co.zerono.mco.helpers.RegisterHelpers;
+import co.zerono.mco.item.ItemSpecialIngot;
 import co.zerono.mco.reference.Reference;
 import co.zerono.mco.reference.Settings;
 import co.zerono.mco.utility.LogHelper;
@@ -60,6 +62,10 @@ public class ModBlocks
 			{
 				GameRegistry.registerBlock(blockAlloy, blockAlloy.getOreDictName());
 			}
+			for(BlockSpecialAlloy specialAlloy : Reference.SPECIAL_ALLOY)
+			{
+				GameRegistry.registerBlock(specialAlloy, specialAlloy.getOreDictName());
+			}
 		}
 		LogHelper.debug("Alloy Blocks Registered.");
 	}
@@ -96,6 +102,10 @@ public class ModBlocks
 			{
 				blockAlloy.registerOreDict();
 			}
+			for(BlockSpecialAlloy specialAlloy : Reference.SPECIAL_ALLOY)
+			{
+				specialAlloy.registerOreDict();
+			}
 		}
 		LogHelper.debug("Alloy Blocks Registered.");
 	}
@@ -108,6 +118,10 @@ public class ModBlocks
 				for(BlockAlloy blockAlloy : Reference.BLOCK_ALLOY_LIST)
 				{
 					blockAlloy.registerCrafting();
+				}
+				for(BlockSpecialAlloy specialAlloy : Reference.SPECIAL_ALLOY)
+				{
+					specialAlloy.registerCrafting();
 				}
 			}
 		}

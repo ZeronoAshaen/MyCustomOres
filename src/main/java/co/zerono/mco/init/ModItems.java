@@ -6,6 +6,8 @@ import co.zerono.mco.item.ItemIngot;
 import co.zerono.mco.item.ItemMCO;
 import co.zerono.mco.item.ItemNugget;
 import co.zerono.mco.item.ItemPlaceHolder;
+import co.zerono.mco.item.ItemSpecialDust;
+import co.zerono.mco.item.ItemSpecialIngot;
 import co.zerono.mco.reference.Reference;
 import co.zerono.mco.reference.Settings;
 import co.zerono.mco.utility.LogHelper;
@@ -23,6 +25,10 @@ public class ModItems
 			{
 				GameRegistry.registerItem(itemIngot, itemIngot.getOreDictName());
 			}
+			for(ItemSpecialIngot specialIngot : Reference.SPECIAL_INGOT)
+			{
+				GameRegistry.registerItem(specialIngot, specialIngot.getOreDictName());
+			}
 		}
 		if(Settings.Master.GEN_NUGGETS || Settings.Master.GEN_POOR)
 		{
@@ -36,6 +42,10 @@ public class ModItems
 			for(ItemDust itemDust : Reference.DUST_LIST)
 			{
 				GameRegistry.registerItem(itemDust, itemDust.getOreDictName());
+			}
+			for(ItemSpecialDust specialDust : Reference.SPECIAL_DUST)
+			{
+				GameRegistry.registerItem(specialDust, specialDust.getOreDictName());
 			}
 		}
 		if(Settings.Master.GEN_TINY_DUST)
@@ -56,6 +66,11 @@ public class ModItems
 				itemIngot.registerCrafting();
 				itemIngot.registerSmelting();
 			}
+			for(ItemSpecialIngot specialIngot : Reference.SPECIAL_INGOT)
+			{
+				specialIngot.registerOreDict();
+				specialIngot.registerCrafting();
+			}
 		}
 		if(Settings.Master.GEN_NUGGETS || Settings.Master.GEN_POOR)
 		{
@@ -73,6 +88,12 @@ public class ModItems
 				itemDust.registerOreDict();
 				itemDust.registerCrafting();
 				itemDust.registerSmelting();
+			}
+			for(ItemSpecialDust specialDust : Reference.SPECIAL_DUST)
+			{
+				specialDust.registerOreDict();
+				specialDust.registerCrafting();
+				specialDust.registerSmelting();
 			}
 		}
 		if(Settings.Master.GEN_TINY_DUST)

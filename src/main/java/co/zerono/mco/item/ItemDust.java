@@ -34,7 +34,7 @@ public class ItemDust extends ItemMCO
 		super();
 		this.setMaxStackSize(64);
 		this.setOreName(WordUtils.capitalizeFully(oreName));
-		this.setDustName((isTiny ? "tinyDust" : "dust") + getOreName());
+		this.setDustName((isTiny ? "dustTiny" : "dust") + getOreName());
 		this.setUnderlyingHex(underlyingHex);
 		this.setOreDictName(getDustName());
 		this.setUnlocalizedName(getOreDictName());

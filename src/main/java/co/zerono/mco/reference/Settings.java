@@ -37,15 +37,22 @@ public class Settings
 		public static int[] ORE_COOK_TIME;
 		public static float[] SMELT_XP;
 	}
-	public static class Ingot
+	public static class Alloy
 	{
-		public static String[] INGOT_NAME;
-		public static String[] INGOT_HEX;
+		public static String[] ALLOY_NAME;
+		public static String[] ALLOY_HEX;
+		public static int[] PRODUCED_AMOUNT;
 		public static String[] DUST_A_NAME;
 		public static int[] DUST_A_AMOUNT;
 		public static String[] DUST_B_NAME;
 		public static int[] DUST_B_AMOUNT;
+		public static String[] DUST_C_NAME;
+		public static int[] DUST_C_AMOUNT;
 		public static int[] COOK_TIME;
 		public static float[] SMELT_XP;
+		public static int[] HARVEST_LEVEL;
+		public static float[] HARDNESS;
+		public static float[] RESISTANCE;
+		public static float[] LIGHT_LEVEL;
 	}
 }

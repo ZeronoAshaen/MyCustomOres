@@ -11,14 +11,11 @@ public class Messages
     	public static final String GENERAL_COMMENT = "general.comment";
         public static final String MASTER_COMMENT = "general.master.comment";
         public static final String GEN_ORES_COMMENT = "general.ores.comment";
-    	public static final String GEN_INGOTS_COMMENT = "general.ingots.comment";
+    	public static final String GEN_ALLOY_COMMENT = "general.alloy.comment";
 
     	public static final String CATEGORY_ORES = "general.ores";
     	public static final String CATEGORY_MASTER = "general.master";
-    	public static final String CATEGORY_INGOTS = "general.ingots";
-    	public static final String CATEGORY_INGOTS_TWO = "general.ingots.two";
-    	public static final String CATEGORY_INGOTS_THREE = "general.ingots.three";
-    	public static final String CATEGORY_INGOTS_FOUR = "general.ingots.four";
+    	public static final String CATEGORY_ALLOY = "general.alloy";
 
     	public static final class Debug
     	{

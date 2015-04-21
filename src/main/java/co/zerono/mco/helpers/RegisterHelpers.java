@@ -4,11 +4,33 @@ import co.zerono.mco.reference.Settings;
 
 public class RegisterHelpers 
 {
-	public static String getOreName(int meta)
+	public static String stringHelper(int meta, String[] stringArray)
 	{
-		if (Settings.Ore.ORE_NAMES.length-1>= meta)
+		if(stringArray.length-1>= meta)
 		{
-			return Settings.Ore.ORE_NAMES[meta];
+			return stringArray[meta];
+		}
+		else
+		{
+			return "ERROR";
+		}
+	}
+	public static int intHelper(int meta, int[] integerArray)
+	{
+		if(integerArray.length-1>=meta)
+		{
+			return integerArray[meta];
+		}
+		else
+		{
+			return 1;
+		}
+	}
+	public static String getOreName(int meta, String[] oreNames)
+	{
+		if (oreNames.length-1>= meta)
+		{
+			return oreNames[meta];
 		}
 		else
 		{
@@ -26,121 +48,121 @@ public class RegisterHelpers
 			return "FFFFFF";
 		}
 	}
-	public static String getToolClass(int meta)
+	public static String getToolClass(int meta, String[] toolClass)
 	{
-		if(Settings.Ore.ORE_TOOL_CLASS.length-1>=meta)
+		if(toolClass.length-1>=meta)
 		{
-			return Settings.Ore.ORE_TOOL_CLASS[meta];
+			return toolClass[meta];
 		}
 		else
 		{
 			return "pickaxe";
 		}
 	}
-	public static int getHarvestLevel(int meta)
+	public static int getHarvestLevel(int meta, int[] harvestLevel)
 	{
-		if(Settings.Ore.ORE_HARVEST_LEVEL.length-1>=meta)
+		if(harvestLevel.length-1>=meta)
 		{
-			return Settings.Ore.ORE_HARVEST_LEVEL[meta];
+			return harvestLevel[meta];
 		}
 		else
 		{
 			return 1;
 		}
 	}
-	public static int getOreXP(int meta)
+	public static int getOreXP(int meta, int[] oreXP)
 	{
-		if(Settings.Ore.ORE_XP.length-1>=meta)
+		if(oreXP.length-1>=meta)
 		{
-			return Settings.Ore.ORE_XP[meta];
+			return oreXP[meta];
 		}
 		else
 		{
 			return 1;
 		}
 	}
-	public static int getChunkChance(int meta)
+	public static int getChunkChance(int meta, int[] chunkChance)
 	{
-		if(Settings.Ore.ORE_CHUNK_CHANCE.length-1>=meta)
+		if(chunkChance.length-1>=meta)
 		{
-			return Settings.Ore.ORE_CHUNK_CHANCE[meta];
+			return chunkChance[meta];
 		}
 		else
 		{
 			return 100;
 		}
 	}
-	public static int getMaxY(int meta)
+	public static int getMaxY(int meta, int[] maxY)
 	{
-		if(Settings.Ore.ORE_MAX_Y.length-1>=meta)
+		if(maxY.length-1>=meta)
 		{
-			return Settings.Ore.ORE_MAX_Y[meta];
+			return maxY[meta];
 		}
 		else
 		{
 			return 128;
 		}
 	}
-	public static int getMinY(int meta)
+	public static int getMinY(int meta, int[] minY)
 	{
-		if(Settings.Ore.ORE_MIN_Y.length-1>=meta)
+		if(minY.length-1>=meta)
 		{
-			return Settings.Ore.ORE_MIN_Y[meta];
+			return minY[meta];
 		}
 		else
 		{
 			return 0;
 		}
 	}
-	public static int getOrePerVein(int meta)
+	public static int getOrePerVein(int meta, int[] perVein)
 	{
-		if(Settings.Ore.ORE_PER_VEIN.length-1>=meta)
+		if(perVein.length-1>=meta)
 		{
-			return Settings.Ore.ORE_PER_VEIN[meta];
+			return perVein[meta];
 		}
 		else
 		{
 			return 1;
 		}
 	}
-	public static int getVeinsPerChunk(int meta)
+	public static int getVeinsPerChunk(int meta, int[] perChunk)
 	{
-		if(Settings.Ore.ORE_VEINS_PER_CHUNK.length-1>=meta)
+		if(perChunk.length-1>=meta)
 		{
-			return Settings.Ore.ORE_VEINS_PER_CHUNK[meta];
+			return perChunk[meta];
 		}
 		else
 		{
 			return 1;
 		}
 	}
-	public static float getHardness(int meta)
+	public static float getHardness(int meta, float[] hardness)
 	{
-		if(Settings.Ore.ORE_HARDNESS.length-1>=meta)
+		if(hardness.length-1>=meta)
 		{
-			return Settings.Ore.ORE_HARDNESS[meta];
+			return hardness[meta];
 		}
 		else
 		{
 			return 1.0F;
 		}
 	}
-	public static float getResistance(int meta)
+	public static float getResistance(int meta, float[] resistance)
 	{
-		if(Settings.Ore.ORE_RESISTANCE.length-1>=meta)
+		if(resistance.length-1>=meta)
 		{
-			return Settings.Ore.ORE_RESISTANCE[meta];
+			return resistance[meta];
 		}
 		else
 		{
 			return 1.0F;
 		}
 	}
-	public static float getLight(int meta)
+	public static float getLight(int meta, float[] lightLevel)
 	{
-		if(Settings.Ore.ORE_LIGHT_LEVEL.length-1>=meta)
+		if(lightLevel.length-1>=meta)
 		{
-			return Settings.Ore.ORE_LIGHT_LEVEL[meta];
+			return lightLevel[meta];
 		}
 		else
 		{
